@@ -335,6 +335,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <tr>
                                         <td>Quinn Flynn</td>
                                         <td>System Architect</td>
@@ -342,215 +343,6 @@
                                         <td>61</td>
                                         <td>2011/04/25</td>
                                         <td>$320,800</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td>2011/07/25</td>
-                                        <td>$170,750</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>Junior Technical Author</td>
-                                        <td>San Francisco</td>
-                                        <td>66</td>
-                                        <td>2009/01/12</td>
-                                        <td>$86,000</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2012/03/29</td>
-                                        <td>$433,060</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airi Satou</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>33</td>
-                                        <td>2008/11/28</td>
-                                        <td>$162,700</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brielle Williamson</td>
-                                        <td>Integration Specialist</td>
-                                        <td>New York</td>
-                                        <td>61</td>
-                                        <td>2012/12/02</td>
-                                        <td>$372,000</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Herrod Chandler</td>
-                                        <td>Sales Assistant</td>
-                                        <td>San Francisco</td>
-                                        <td>59</td>
-                                        <td>2012/08/06</td>
-                                        <td>$137,500</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rhona Davidson</td>
-                                        <td>Integration Specialist</td>
-                                        <td>Tokyo</td>
-                                        <td>55</td>
-                                        <td>2010/10/14</td>
-                                        <td>$327,900</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Colleen Hurst</td>
-                                        <td>Javascript Developer</td>
-                                        <td>San Francisco</td>
-                                        <td>39</td>
-                                        <td>2009/09/15</td>
-                                        <td>$205,500</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonya Frost</td>
-                                        <td>Software Engineer</td>
-                                        <td>Edinburgh</td>
-                                        <td>23</td>
-                                        <td>2008/12/13</td>
-                                        <td>$103,600</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jena Gaines</td>
-                                        <td>Office Manager</td>
-                                        <td>London</td>
-                                        <td>30</td>
-                                        <td>2008/12/19</td>
-                                        <td>$90,560</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>Support Lead</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2013/03/03</td>
-                                        <td>$342,000</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charde Marshall</td>
-                                        <td>Regional Director</td>
-                                        <td>San Francisco</td>
-                                        <td>36</td>
-                                        <td>2008/10/16</td>
-                                        <td>$470,600</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Haley Kennedy</td>
-                                        <td>Senior Marketing Designer</td>
-                                        <td>London</td>
-                                        <td>43</td>
-                                        <td>2012/12/18</td>
-                                        <td>$313,500</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tatyana Fitzpatrick</td>
-                                        <td>Regional Director</td>
-                                        <td>London</td>
-                                        <td>19</td>
-                                        <td>2010/03/17</td>
-                                        <td>$385,750</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael Silva</td>
-                                        <td>Marketing Designer</td>
-                                        <td>London</td>
-                                        <td>66</td>
-                                        <td>2012/11/27</td>
-                                        <td>$198,500</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Paul Byrd</td>
-                                        <td>Chief Financial Officer (CFO)</td>
-                                        <td>New York</td>
-                                        <td>64</td>
-                                        <td>2010/06/09</td>
-                                        <td>$725,000</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gloria Little</td>
-                                        <td>Systems Administrator</td>
-                                        <td>New York</td>
-                                        <td>59</td>
-                                        <td>2009/04/10</td>
-                                        <td>$237,500</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bradley Greer</td>
-                                        <td>Software Engineer</td>
-                                        <td>London</td>
-                                        <td>41</td>
-                                        <td>2012/10/13</td>
-                                        <td>$132,000</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dai Rios</td>
-                                        <td>Personnel Lead</td>
-                                        <td>Edinburgh</td>
-                                        <td>35</td>
-                                        <td>2012/09/26</td>
-                                        <td>$217,500</td>
                                         <td>01678909876</td>
                                         <td>Go</td>
                                         <td>Yes</td>
@@ -584,7 +376,7 @@
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
-                            <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                            <table id="live_agents" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
                                         <th>Extention</th>
@@ -606,179 +398,8 @@
                                         <td>9</td>
                                         <td>13</td>
                                     </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>09.00 AM</td>
-                                        <td>07.00 PM</td>
-                                        <td>7.9</td>
-                                        <td>44</td>
-                                        <td>8</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>34</td>
-                                        <td>7</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>43</td>
-                                        <td>3</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airi Satou</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>9</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brielle Williamson</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>35</td>
-                                        <td>2</td>
-                                        <td>66</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Herrod Chandler</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>15</td>
-                                        <td>8</td>
-                                        <td>21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rhona Davidson</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>45</td>
-                                        <td>2</td>
-                                        <td>18</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Colleen Hurst</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonya Frost</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jena Gaines</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charde Marshall</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Haley Kennedy</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tatyana Fitzpatrick</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael Silva</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Paul Byrd</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gloria Little</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bradley Greer</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dai Rios</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
                                 </tbody>
-                                <tfoot>
+                                {{-- <tfoot>
                                     <tr>
                                         <th>Extention</th>
                                         <th>Agent Name</th>
@@ -788,7 +409,7 @@
                                         <th>Incoming Calls</th>
                                         <th>Outgoing Calls</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> --}}
                             </table>
                         </div>
                     </div>
@@ -1016,6 +637,12 @@
             </div> --}}
             <!-- Agent Summery table end -->
         </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 id="api">kjhkjhjkhjkh</h1>
+            </div>
+        </div>
         
     </div>
 
@@ -1046,21 +673,55 @@
 <script src={{ asset("assets/js/pages/data-advance-custom.js")}}></script>
 <script src={{ asset("assets/js/pages/data-basic-custom.js") }}></script>
 
-<script>
+{{-- <script>
     var seconds = 0;
     var el = document.getElementById('seconds-counter');
+    
 
     function incrementSeconds() {
         seconds += 1;
         el.innerText = seconds;
-        if(seconds==30)
+        if(seconds==5)
         {
-            window.location.reload();
+            var e2 = document.getElementById('api');
+    // fetch('http://172.16.252.7/cc_api/get_team_stats.php')
+    //         .then(response => response.json())
+    //         .then(data_api => console.log(data_api) );
+
+            // Example POST method implementation:
+            async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+            }
+
+            postData('http://172.16.252.7/cc_api/get_team_stats.php', { answer: 42 })
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+                alert(data);
+            });
+
+
+            // alert('hi');   
+            // window.location.reload();
+
         }
     }
 
     var cancel = setInterval(incrementSeconds, 1000);
-</script>
+</script> --}}
 
 <script>
     var ctx = document.getElementById("inboundChart");
@@ -1096,7 +757,7 @@
       }]
     };
 
-    let data = {
+    let data_example = {
     labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
     datasets: [{
       label: 'Inbound Live',
@@ -1387,5 +1048,50 @@
     }, 100);
 });
 </Script> --}}
+
+<script>
+    $(document).ready(function(){
+        let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({  
+			async: true,
+			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
+			type: 'post', //  or POST $(this).attr('method')
+			url:  'http://127.0.0.1:8000/admin/api',// the file to call //$(this).attr('action')			
+			dataType : 'json',
+			beforeSend: function(  ) {
+				//$('#myModal').modal('toggle');
+			}
+		})
+		.done(function( response ) {
+			//alert('hi');
+			console.log(response);
+
+            if(response.success=='y'){
+				//$("#team_stats").empty();
+				$("#live_agents tbody tr").remove();
+				var output=response.output;
+				//console.log(output);
+				
+				for (i = 0; i < output.length; ++i) {
+					                    
+					var markup = "<tr><td>"+output[i].extension+"</td><td>" + output[i].name + "</td><td>" + output[i].status  + "</td><td>" + output[i].reason + "</td><td>" + output[i].duration + "</td><td>" + output[i].in + "</td><td>" + output[i].out + "</td></tr>";
+					console.log(markup);
+					//$("#team_stats > tbody").append(markup);
+					$('#live_agents > tbody:last-child').append(markup);
+					
+				}
+				
+				// setTimeout(get_team_stats, 10000);  //every 10 seconds
+			}
+
+		});
+});
+    // var e2 = document.getElementById('api');
+    // fetch('http://172.16.252.7/cc_api/get_team_stats.php')
+    //         .then(response => response.json())
+    //         .then(e2.innerText = data;);
+        
+
+</script>
 
 @endsection

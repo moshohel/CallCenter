@@ -29,8 +29,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/live', [AdminController::class, 'live'])->name('live');
-
-});    
+    Route::post('/api', [AdminController::class, 'api'])->name('api');
+});
 
 Route::get('/index', function () {
     return view('pages.index');
