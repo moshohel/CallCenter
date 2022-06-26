@@ -320,35 +320,28 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive dt-responsive">
-                            <table id="colum-rendr" class="table table-striped table-bordered nowrap">
+                            <table id="live_calls_table" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Agent Name</th>
                                         <th>Campaign</th>
-                                        <th>Customer Number</th>
-                                        <th>Call Status</th>
                                         <th>DID</th>
-                                        <th>Call Duration</th>
-                                        <th>Whisper</th>
+                                        <th>Customer Number</th>
                                         <th>Conference</th>
-                                        <th>Pause Code</th>
+                                        <th>Agent_extension</th>
+                                        <th>Call Duration</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>01678909876</td>
-                                        <td>Go</td>
-                                        <td>Yes</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
                                     </tr>
                                 </tbody>
-                                <tfoot>
+                                {{-- <tfoot>
                                     <tr>
                                         <th>Agent Name</th>
                                         <th>Campaign</th>
@@ -360,7 +353,7 @@
                                         <th>Conference</th>
                                         <th>Pause Code</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> --}}
                             </table>
                         </div>
                     </div>
@@ -637,12 +630,6 @@
             </div> --}}
             <!-- Agent Summery table end -->
         </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 id="api">kjhkjhjkhjkh</h1>
-            </div>
-        </div>
         
     </div>
 
@@ -673,7 +660,7 @@
 <script src={{ asset("assets/js/pages/data-advance-custom.js")}}></script>
 <script src={{ asset("assets/js/pages/data-basic-custom.js") }}></script>
 
-{{-- <script>
+<script>
     var seconds = 0;
     var el = document.getElementById('seconds-counter');
     
@@ -681,47 +668,17 @@
     function incrementSeconds() {
         seconds += 1;
         el.innerText = seconds;
-        if(seconds==5)
+        if(seconds==100)
         {
-            var e2 = document.getElementById('api');
-    // fetch('http://172.16.252.7/cc_api/get_team_stats.php')
-    //         .then(response => response.json())
-    //         .then(data_api => console.log(data_api) );
-
-            // Example POST method implementation:
-            async function postData(url = '', data = {}) {
-            // Default options are marked with *
-            const response = await fetch(url, {
-                method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                mode: 'cors', // no-cors, *cors, same-origin
-                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                credentials: 'same-origin', // include, *same-origin, omit
-                headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                redirect: 'follow', // manual, *follow, error
-                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                body: JSON.stringify(data) // body data type must match "Content-Type" header
-            });
-            return response.json(); // parses JSON response into native JavaScript objects
-            }
-
-            postData('http://172.16.252.7/cc_api/get_team_stats.php', { answer: 42 })
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-                alert(data);
-            });
-
 
             // alert('hi');   
-            // window.location.reload();
+            window.location.reload();
 
         }
     }
 
     var cancel = setInterval(incrementSeconds, 1000);
-</script> --}}
+</script>
 
 <script>
     var ctx = document.getElementById("inboundChart");
@@ -1052,11 +1009,13 @@
 <script>
     $(document).ready(function(){
         let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        // API CAll and DATA TABLE DATA APPEND for LIVE CALLS
         $.ajax({  
 			async: true,
 			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
 			type: 'post', //  or POST $(this).attr('method')
-			url:  'http://127.0.0.1:8000/admin/api',// the file to call //$(this).attr('action')			
+			url:  'http://127.0.0.1:8000/admin/apiLivecalls',// the file to call //$(this).attr('action')			
 			dataType : 'json',
 			beforeSend: function(  ) {
 				//$('#myModal').modal('toggle');
@@ -1065,33 +1024,58 @@
 		.done(function( response ) {
 			//alert('hi');
 			console.log(response);
+            if(response.success=='y'){
+				//$("#team_stats").empty();
+				$("#live_calls_table tbody tr").remove();
+				var output=response.output;
+				//console.log(output);
+				for (i = 0; i < output.length; ++i) {
+					                    
+					var markup = "<tr><td>"+output[i].campaign+"</td><td>" + output[i].did + "</td><td>" + output[i].customer_no  + "</td><td>" + output[i].call_status + "</td><td>" + output[i].agent_extension + "</td><td>" + output[i].duration + "</td></tr>";
+					console.log(markup);
+					//$("#team_stats > tbody").append(markup);
+					$('#live_calls_table > tbody:last-child').append(markup);
+					
+				}	
+				// setTimeout(get_team_stats, 10000);  //every 10 seconds
+			}
+		});
 
+        // API CAll and DATA TABLE DATA APPEND for LIVE AGENSTS
+        $.ajax({  
+			async: true,
+			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
+			type: 'post', //  or POST $(this).attr('method')
+			url:  'http://127.0.0.1:8000/admin/apiLiveAgents',// the file to call //$(this).attr('action')			
+			dataType : 'json',
+			beforeSend: function(  ) {
+				//$('#myModal').modal('toggle');
+			}
+		})
+		.done(function( response ) {
+			//alert('hi');
+			// console.log(response);
             if(response.success=='y'){
 				//$("#team_stats").empty();
 				$("#live_agents tbody tr").remove();
 				var output=response.output;
 				//console.log(output);
-				
 				for (i = 0; i < output.length; ++i) {
 					                    
 					var markup = "<tr><td>"+output[i].extension+"</td><td>" + output[i].name + "</td><td>" + output[i].status  + "</td><td>" + output[i].reason + "</td><td>" + output[i].duration + "</td><td>" + output[i].in + "</td><td>" + output[i].out + "</td></tr>";
-					console.log(markup);
+					// console.log(markup);
 					//$("#team_stats > tbody").append(markup);
 					$('#live_agents > tbody:last-child').append(markup);
 					
-				}
-				
+				}	
 				// setTimeout(get_team_stats, 10000);  //every 10 seconds
 			}
-
 		});
-});
-    // var e2 = document.getElementById('api');
-    // fetch('http://172.16.252.7/cc_api/get_team_stats.php')
-    //         .then(response => response.json())
-    //         .then(e2.innerText = data;);
-        
 
+        
+});
+    
+        
 </script>
 
 @endsection

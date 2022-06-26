@@ -29,7 +29,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/live', [AdminController::class, 'live'])->name('live');
-    Route::post('/api', [AdminController::class, 'api'])->name('api');
+    Route::post('/apiLiveAgents', [AdminController::class, 'apiLiveAgents'])->name('apiLiveAgents');
+    Route::post('/apiLivecalls', [AdminController::class, 'apiLivecalls'])->name('apiLivecalls');
 });
 
 Route::get('/index', function () {

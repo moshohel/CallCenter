@@ -2,6 +2,7 @@ $(document).ready(function () {
   setTimeout(function () {
     // [ Zero Configuration ] start
     $('#simpletable').DataTable()
+    $('#live_calls_table').DataTable()
 
     // [ Default Ordering ] start
     $('#order-table').DataTable({
