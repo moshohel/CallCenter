@@ -28,13 +28,13 @@ class AdminController extends Controller
         return view('pages.live');
     }
 
-    public function apiLivecalls()
+    public function apiLive()
     {
         // dd(Request::ip());
         // $ip = Request::ip();
         $fields = array(); //'call_type'=>'isd');
         //$url="localhost:5151/callmonitor_new_api/index.php";
-        $url = "http://172.16.252.7/cc_api/get_live_calls.php";
+        $url = "http://172.16.252.7/cc_api/get_live_data.php";
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

@@ -50,7 +50,7 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-yellow">300</h4>
+                                <h4 class="text-c-yellow" id="total_calls">0</h4>
                                 <h6 class="text-muted m-b-0">Total Calls</h6>
                             </div>
                             <div class="col-4 text-end">
@@ -75,7 +75,7 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-green">2</h4>
+                                <h4 class="text-c-green" id="live_calls">0</h4>
                                 <h6 class="text-muted m-b-0">Live Calls</h6>
                             </div>
                             <div class="col-4 text-end">
@@ -100,7 +100,7 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-yellow">30</h4>
+                                <h4 class="text-c-yellow" id="total_agents">0</h4>
                                 <h6 class="text-muted m-b-0">Total </h6>
                             </div>
                             <div class="col-4 text-end">
@@ -125,7 +125,7 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-green">2</h4>
+                                <h4 class="text-c-green" id="logged_id_agents">0</h4>
                                 <h6 class="text-muted m-b-0">Logged In</h6>
                             </div>
                             <div class="col-4 text-end">
@@ -150,7 +150,7 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-blue">5</h4>
+                                <h4 class="text-c-blue"  id="paused_agents">0</h4>
                                 <h6 class="text-muted m-b-0">Paused</h6>
                             </div>
                             <div class="col-4 text-end">
@@ -276,7 +276,7 @@
                     <div class="card-body">
                         <div class="text-center">
                             
-                            <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
+                            <h5>Outbound <br><span class="badge badge-danger">Festival</span></h5>
                         </div>
                     </div>
                 </div>
@@ -327,12 +327,14 @@
                                         <th>DID</th>
                                         <th>Customer Number</th>
                                         <th>Conference</th>
+                                        <th>Agent name</th>
                                         <th>Agent_extension</th>
                                         <th>Call Duration</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>test</td>
                                         <td>test</td>
                                         <td>test</td>
                                         <td>test</td>
@@ -668,7 +670,7 @@
     function incrementSeconds() {
         seconds += 1;
         el.innerText = seconds;
-        if(seconds==100)
+        if(seconds==1000)
         {
 
             // alert('hi');   
@@ -681,6 +683,92 @@
 </script>
 
 <script>
+    const total_calls = document.getElementById("total_calls");
+    const live_calls = document.getElementById("live_calls");
+    const paused_agents = document.getElementById("paused_agents");
+    const total_agents = document.getElementById("total_agents");
+    const logged_id_agents = document.getElementById("logged_id_agents");
+
+    $(document).ready(function(){
+        let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        // API CAll and DATA TABLE DATA APPEND for LIVE CALLS
+        $.ajax({  
+			async: true,
+			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
+			type: 'post', //  or POST $(this).attr('method')
+			url:  'http://127.0.0.1:8000/admin/apiLive',// the file to call //$(this).attr('action')			
+			dataType : 'json',
+			beforeSend: function(  ) {
+				//$('#myModal').modal('toggle');
+			}
+		})
+		.done(function( response ) {
+			//alert('hi');
+			// console.log(response);
+            if(response.success=='y'){
+				//$("#team_stats").empty();
+                $('#total_calls').html(response.c_total_call);
+                $('#total_agents').html(response.c_total_agent);
+                $('#paused_agents').html(response.c_paused_agent);
+                $('#logged_id_agents').html(response.c_logged_in_agent);
+                //live_calls.innerText = response.live_calls_dataset.length;
+                $('#live_calls').html(response.live_calls_dataset.length);
+
+				$("#live_calls_table tbody tr").remove();
+				var output=response.live_calls_dataset;
+				// console.log(output);
+				for (i = 0; i < output.length; ++i) {
+					                    
+					var markup = "<tr><td>"+output[i].campaign+"</td><td>" + output[i].did + "</td><td>" + output[i].customer_no  + "</td><td>" + output[i].call_status + "</td><td>" + output[i].agent_name + "</td><td>" + output[i].agent_extension + "</td><td>" + output[i].duration + "</td></tr>";
+					// console.log(markup);
+					//$("#team_stats > tbody").append(markup);
+					$('#live_calls_table > tbody:last-child').append(markup);
+					
+				}	
+				// setTimeout(get_team_stats, 10000);  //every 10 seconds
+			}
+		});
+
+        // API CAll and DATA TABLE DATA APPEND for LIVE AGENSTS
+        $.ajax({  
+			async: true,
+			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
+			type: 'post', //  or POST $(this).attr('method')
+			url:  'http://127.0.0.1:8000/admin/apiLive',// the file to call //$(this).attr('action')			
+			dataType : 'json',
+			beforeSend: function(  ) {
+				//$('#myModal').modal('toggle');
+			}
+		})
+		.done(function( response ) {
+			//alert('hi');
+			// console.log(response);
+            if(response.success=='y'){
+				//$("#team_stats").empty();
+				$("#live_agents tbody tr").remove();
+				var output=response.live_agents_dataset;
+				// console.log(output);
+				for (i = 0; i < output.length; ++i) {
+					                    
+					var markup = "<tr><td>"+output[i].extension+"</td><td>" + output[i].name + "</td><td>" + output[i].status  + "</td><td>" + output[i].reason + "</td><td>" + output[i].duration + "</td><td>" + output[i].in + "</td><td>" + output[i].out + "</td></tr>";
+					// console.log(markup);
+					//$("#team_stats > tbody").append(markup);
+					$('#live_agents > tbody:last-child').append(markup);
+					
+				}	
+				// setTimeout(get_team_stats, 10000);  //every 10 seconds
+			}
+		});
+
+        
+});
+    
+        
+</script>
+
+<script>
+    console.log(response);
     var ctx = document.getElementById("inboundChart");
     let data1 = {
       datasets: [{
@@ -826,19 +914,15 @@
       datasets: [{
          label: "Outbound Live Calls",
          backgroundColor: "#AF7333",
-         data: [150],
+         data: [15],
       },{
          label: "Outbound Failed Calls",
          backgroundColor: "#FA4444",
-         data: [Math.random() * 1000],
+         data: [5],
       },{
          label: "Outbound Answered Calls",
          backgroundColor: "#45A888",
-         data: [Math.random() * 1000],
-      },{
-         label: "Dropped Percentage",
-         backgroundColor: "#4A7888",
-         data: [Math.random() * 100],
+         data: [150],
       }]
     };
     // const ctx = canvas.getContext("2d");
@@ -1006,76 +1090,6 @@
 });
 </Script> --}}
 
-<script>
-    $(document).ready(function(){
-        let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-        // API CAll and DATA TABLE DATA APPEND for LIVE CALLS
-        $.ajax({  
-			async: true,
-			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
-			type: 'post', //  or POST $(this).attr('method')
-			url:  'http://127.0.0.1:8000/admin/apiLivecalls',// the file to call //$(this).attr('action')			
-			dataType : 'json',
-			beforeSend: function(  ) {
-				//$('#myModal').modal('toggle');
-			}
-		})
-		.done(function( response ) {
-			//alert('hi');
-			console.log(response);
-            if(response.success=='y'){
-				//$("#team_stats").empty();
-				$("#live_calls_table tbody tr").remove();
-				var output=response.output;
-				//console.log(output);
-				for (i = 0; i < output.length; ++i) {
-					                    
-					var markup = "<tr><td>"+output[i].campaign+"</td><td>" + output[i].did + "</td><td>" + output[i].customer_no  + "</td><td>" + output[i].call_status + "</td><td>" + output[i].agent_extension + "</td><td>" + output[i].duration + "</td></tr>";
-					console.log(markup);
-					//$("#team_stats > tbody").append(markup);
-					$('#live_calls_table > tbody:last-child').append(markup);
-					
-				}	
-				// setTimeout(get_team_stats, 10000);  //every 10 seconds
-			}
-		});
-
-        // API CAll and DATA TABLE DATA APPEND for LIVE AGENSTS
-        $.ajax({  
-			async: true,
-			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
-			type: 'post', //  or POST $(this).attr('method')
-			url:  'http://127.0.0.1:8000/admin/apiLiveAgents',// the file to call //$(this).attr('action')			
-			dataType : 'json',
-			beforeSend: function(  ) {
-				//$('#myModal').modal('toggle');
-			}
-		})
-		.done(function( response ) {
-			//alert('hi');
-			// console.log(response);
-            if(response.success=='y'){
-				//$("#team_stats").empty();
-				$("#live_agents tbody tr").remove();
-				var output=response.output;
-				//console.log(output);
-				for (i = 0; i < output.length; ++i) {
-					                    
-					var markup = "<tr><td>"+output[i].extension+"</td><td>" + output[i].name + "</td><td>" + output[i].status  + "</td><td>" + output[i].reason + "</td><td>" + output[i].duration + "</td><td>" + output[i].in + "</td><td>" + output[i].out + "</td></tr>";
-					// console.log(markup);
-					//$("#team_stats > tbody").append(markup);
-					$('#live_agents > tbody:last-child').append(markup);
-					
-				}	
-				// setTimeout(get_team_stats, 10000);  //every 10 seconds
-			}
-		});
-
-        
-});
-    
-        
-</script>
 
 @endsection

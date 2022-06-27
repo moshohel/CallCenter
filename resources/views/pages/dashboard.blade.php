@@ -295,19 +295,71 @@
           </div>
           
           <!-- Charts start -->
-        <div class="row">
-            <!-- [ chartjs-chart ] start -->
-            {{-- <div class="col-xl-6 col-md-12">
+
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Bar Chart</h5>
+                    {{-- <div class="card-body" style="height: 400px;">
+                        <canvas id="inboundChart"></canvas>
+                    </div> --}}
+                    <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                        <canvas id="inboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
                     </div>
                     <div class="card-body">
-                        <canvas id="call_age" style="width: 100%; height: 300px"></canvas>
+                        <div class="text-center">
+                            {{-- <img src="assets/images/pages/festival.svg" alt="image" class="img-fluid wid-100 mb-2"> --}}
+                            <h5>Total Inbound Call Status <br><span class="badge badge-danger">Festival</span></h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                        <canvas id="outboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            
+                            <h5>Total Outbound Call Status<br><span class="badge badge-danger">Festival</span></h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            {{-- <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                        <canvas id="outboundChart_test" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            
+                            <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Bar chart horizontal</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="bar-chart-3"></div>
                     </div>
                 </div>
             </div> --}}
 
+        </div>
+
+        {{-- <div class="row">
+        
             <div class="col-xl-6 col-md-12">
                 <div class="card card-no-hover m-b-30">
                   <div class="card-header">
@@ -335,7 +387,7 @@
               </div>
 
               
-        </div>
+        </div> --}}
 
         {{-- <div class="row">
             <div class="col-xl-6 col-md-12">
@@ -612,6 +664,194 @@
 <script src={{ asset("assets/js/plugins/dataTables.bootstrap4.min.js")}}></script>
 {{-- <script src={{ asset("assets/js/pages/data-advance-custom.js")}}></script> --}}
 <script src={{ asset("assets/js/pages/data-basic-custom.js") }}></script>
+
+<script>
+    var ctx = document.getElementById("inboundChart");
+    let data1 = {
+      datasets: [{
+         label: "Answer",
+         backgroundColor: "#AF7333",
+         data: [15],
+      },{
+         label: "Total Calls",
+         backgroundColor: "#ff5252",
+         data: [34],
+      },{
+         label: "Drop Calls",
+         backgroundColor: "#00acc1",
+         data: [8],
+      },{
+         label: "IVR Drop",
+         backgroundColor: "#2A7888",
+         data: [41],
+      },{
+         label: "Queue Drop",
+         backgroundColor: "#FF7777",
+         data: [18],
+      }]
+    };
+    
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: data1,
+      options: {
+        responsive: true,
+        "hover": {
+          "animationDuration": 0
+        },
+        "animation": {
+            "duration": 500,
+            "easing": 'easeInQuart',
+          "onComplete": function() {
+            var chartInstance = this.chart,
+              ctx = chartInstance.ctx;
+  
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+  
+            this.data.datasets.forEach(function(dataset, i) {
+              var meta = chartInstance.controller.getDatasetMeta(i);
+              meta.data.forEach(function(bar, index) {
+                var data = dataset.data[index];
+                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+              });
+            });
+          }
+        },
+        legend: {
+          "display": true,
+          position: 'bottom'
+        },
+        tooltips: {
+          "enabled": true
+        },
+        scales: {
+          yAxes: [{
+            display: true,
+            gridLines: {
+              display: false
+            },
+            ticks: {
+            //   max: Math.max(...data.datasets[0].data) + 10,
+              display: true,
+              beginAtZero: true,
+            //   mirror: false,
+                // fontSize: 18,
+                // labelOffset: -22
+            },
+            scaleLabel: {
+                  display: true,
+                //   labelString: 'IN Taka',
+                }
+          }],
+          xAxes: [{
+            // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+            gridLines: {
+              display: false
+            },
+            ticks: {
+              beginAtZero: true,
+                mirror: false,
+                fontSize: 18,
+                labelOffset: -22
+            }
+          }]
+        }
+      }
+    });
+</script>
+
+<script>
+    var ctx = document.getElementById("outboundChart");
+    // debugger;
+    let dataOutboundChart = {
+        // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+      datasets: [{
+         label: "Total Calls",
+         backgroundColor: "#AF7333",
+         data: [75],
+      },{
+         label: "Success Calls",
+         backgroundColor: "#45A888",
+         data: [46],
+      },{
+         label: "Outbound Failed Calls",
+         backgroundColor: "#FA4444",
+         data: [4],
+      }]
+    };
+    // const ctx = canvas.getContext("2d");
+    const outboundChart = new Chart(ctx, {
+      type: 'bar',
+      data: dataOutboundChart,
+      options: {
+        responsive: true,
+        "hover": {
+          "animationDuration": 0
+        },
+        "animation": {
+            "duration": 500,
+            "easing": 'easeInQuart',
+          "onComplete": function() {
+            var chartInstance = this.chart,
+              ctx = chartInstance.ctx;
+  
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+  
+            this.data.datasets.forEach(function(dataset, i) {
+              var meta = chartInstance.controller.getDatasetMeta(i);
+              meta.data.forEach(function(bar, index) {
+                var data = dataset.data[index];
+                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+              });
+            });
+          }
+        },
+        legend: {
+          "display": true,
+          position: 'bottom'
+        },
+        tooltips: {
+          "enabled": true
+        },
+        scales: {
+          yAxes: [{
+            display: true,
+            gridLines: {
+              display: false
+            },
+            ticks: {
+            //   max: Math.max(...data.datasets[0].data) + 10,
+              display: true,
+              beginAtZero: true,
+            //   mirror: false,
+                // fontSize: 18,
+                // labelOffset: -22
+            },
+            scaleLabel: {
+                  display: true,
+                //   labelString: 'IN Taka',
+                }
+          }],
+          xAxes: [{
+            // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+            gridLines: {
+              display: false
+            },
+            ticks: {
+              beginAtZero: true,
+                mirror: false,
+                fontSize: 18,
+                labelOffset: -22
+            }
+          }]
+        }
+      }
+    });
+</script>
 
 <script>
     var colors = ["red", "green","blue","orange","brown"];
