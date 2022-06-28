@@ -210,7 +210,7 @@
                                         <td>Dropped Percentage</td>
                                         <td  class="text-wrap"> : 10%</td>
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -239,7 +239,7 @@
                                         <td>Outbound Failed Calls/Abandoned/Unsuccessful Calls</td>
                                         <td> : 2</td>
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -265,7 +265,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="col-lg-6 col-md-12">
@@ -275,12 +275,12 @@
                     </div>
                     <div class="card-body">
                         <div class="text-center">
-                            
+
                             <h5>Outbound <br><span class="badge badge-danger">Festival</span></h5>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             {{-- <div class="col-lg-6 col-md-12">
@@ -290,12 +290,12 @@
                     </div>
                     <div class="card-body">
                         <div class="text-center">
-                            
+
                             <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="col-lg-6 col-md-6">
@@ -326,7 +326,7 @@
                                         <th>Campaign</th>
                                         <th>DID</th>
                                         <th>Customer Number</th>
-                                        <th>Conference</th>
+                                        <th>Call Status</th>
                                         <th>Agent name</th>
                                         <th>Agent_extension</th>
                                         <th>Call Duration</th>
@@ -632,7 +632,7 @@
             </div> --}}
             <!-- Agent Summery table end -->
         </div>
-        
+
     </div>
 
     </div>
@@ -665,7 +665,7 @@
 <script>
     var seconds = 0;
     var el = document.getElementById('seconds-counter');
-    
+
 
     function incrementSeconds() {
         seconds += 1;
@@ -673,13 +673,214 @@
         if(seconds==1000)
         {
 
-            // alert('hi');   
+            // alert('hi');
             window.location.reload();
 
         }
     }
 
     var cancel = setInterval(incrementSeconds, 1000);
+</script>
+
+<script>
+    // console.log(response);
+     function inboundChartFun(response)
+    {
+
+        var ctx = document.getElementById("inboundChart");
+        let data1 = {
+        datasets: [{
+            label: "Inbound Live",
+            backgroundColor: "#AF7333",
+            data: [response.c_live_in],
+        },{
+            label: "Calls in IVR",
+            backgroundColor: "#ff5252",
+            data: [response.c_callmenu],
+        },{
+            label: "Calls in Queue",
+            backgroundColor: "#00acc1",
+            data: [response.c_ingroup],
+        },{
+            label: "Drop Calls",
+            backgroundColor: "#2A7888",
+            data: [response.c_dropped],
+        },{
+            label: "Answered",
+            backgroundColor: "#109d4b",
+            data: [response.c_answered_in],
+        }]
+        };
+
+            const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data1,
+        options: {
+            responsive: true,
+            "hover": {
+            "animationDuration": 0
+            },
+            "animation": {
+                "duration": 500,
+                "easing": 'easeInQuart',
+            "onComplete": function() {
+                var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function(dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function(bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                });
+                });
+            }
+            },
+            legend: {
+            "display": true,
+            position: 'bottom'
+            },
+            tooltips: {
+            "enabled": true
+            },
+            scales: {
+            yAxes: [{
+                display: true,
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                //   max: Math.max(...data.datasets[0].data) + 10,
+                display: true,
+                beginAtZero: true,
+                //   mirror: false,
+                    // fontSize: 18,
+                    // labelOffset: -22
+                },
+                scaleLabel: {
+                    display: true,
+                    //   labelString: 'IN Taka',
+                    }
+            }],
+            xAxes: [{
+                // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                beginAtZero: true,
+                    mirror: false,
+                    fontSize: 18,
+                    labelOffset: -22
+                }
+            }]
+            }
+        }
+        });
+
+    }
+
+</script>
+
+<script>
+
+    function outboundChartFun(response)
+    {
+        var ctx = document.getElementById("outboundChart");
+        // debugger;
+        let dataOutboundChart = {
+            // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+        datasets: [{
+            label: "Outbound Live Calls",
+            backgroundColor: "#AF7333",
+            data: [response.c_live_out],
+        },{
+            label: "Outbound Failed Calls",
+            backgroundColor: "#FA4444",
+            data: [response.c_failed_out],
+        },{
+            label: "Outbound Answered Calls",
+            backgroundColor: "#45A888",
+            data: [response.c_answered_out],
+        }]
+        };
+        // const ctx = canvas.getContext("2d");
+        const outboundChart = new Chart(ctx, {
+        type: 'bar',
+        data: dataOutboundChart,
+        options: {
+            responsive: true,
+            "hover": {
+            "animationDuration": 0
+            },
+            "animation": {
+                "duration": 500,
+                "easing": 'easeInQuart',
+            "onComplete": function() {
+                var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function(dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function(bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                });
+                });
+            }
+            },
+            legend: {
+            "display": true,
+            position: 'bottom'
+            },
+            tooltips: {
+            "enabled": true
+            },
+            scales: {
+            yAxes: [{
+                display: true,
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                //   max: Math.max(...data.datasets[0].data) + 10,
+                display: true,
+                beginAtZero: true,
+                //   mirror: false,
+                    // fontSize: 18,
+                    // labelOffset: -22
+                },
+                scaleLabel: {
+                    display: true,
+                    //   labelString: 'IN Taka',
+                    }
+            }],
+            xAxes: [{
+                // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                beginAtZero: true,
+                    mirror: false,
+                    fontSize: 18,
+                    labelOffset: -22
+                }
+            }]
+            }
+        }
+        });
+    }
+
+
 </script>
 
 <script>
@@ -693,11 +894,11 @@
         let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
         // API CAll and DATA TABLE DATA APPEND for LIVE CALLS
-        $.ajax({  
+        $.ajax({
 			async: true,
 			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
 			type: 'post', //  or POST $(this).attr('method')
-			url:  'http://127.0.0.1:8000/admin/apiLive',// the file to call //$(this).attr('action')			
+			url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
 			dataType : 'json',
 			beforeSend: function(  ) {
 				//$('#myModal').modal('toggle');
@@ -705,9 +906,11 @@
 		})
 		.done(function( response ) {
 			//alert('hi');
-			// console.log(response);
+			console.log(response);
             if(response.success=='y'){
 				//$("#team_stats").empty();
+                inboundChartFun(response);
+                outboundChartFun(response);
                 $('#total_calls').html(response.c_total_call);
                 $('#total_agents').html(response.c_total_agent);
                 $('#paused_agents').html(response.c_paused_agent);
@@ -719,23 +922,23 @@
 				var output=response.live_calls_dataset;
 				// console.log(output);
 				for (i = 0; i < output.length; ++i) {
-					                    
+
 					var markup = "<tr><td>"+output[i].campaign+"</td><td>" + output[i].did + "</td><td>" + output[i].customer_no  + "</td><td>" + output[i].call_status + "</td><td>" + output[i].agent_name + "</td><td>" + output[i].agent_extension + "</td><td>" + output[i].duration + "</td></tr>";
 					// console.log(markup);
 					//$("#team_stats > tbody").append(markup);
 					$('#live_calls_table > tbody:last-child').append(markup);
-					
-				}	
+
+				}
 				// setTimeout(get_team_stats, 10000);  //every 10 seconds
 			}
 		});
 
         // API CAll and DATA TABLE DATA APPEND for LIVE AGENSTS
-        $.ajax({  
+        $.ajax({
 			async: true,
 			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
 			type: 'post', //  or POST $(this).attr('method')
-			url:  'http://127.0.0.1:8000/admin/apiLive',// the file to call //$(this).attr('action')			
+			url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
 			dataType : 'json',
 			beforeSend: function(  ) {
 				//$('#myModal').modal('toggle');
@@ -746,256 +949,30 @@
 			// console.log(response);
             if(response.success=='y'){
 				//$("#team_stats").empty();
+
 				$("#live_agents tbody tr").remove();
 				var output=response.live_agents_dataset;
 				// console.log(output);
 				for (i = 0; i < output.length; ++i) {
-					                    
+
 					var markup = "<tr><td>"+output[i].extension+"</td><td>" + output[i].name + "</td><td>" + output[i].status  + "</td><td>" + output[i].reason + "</td><td>" + output[i].duration + "</td><td>" + output[i].in + "</td><td>" + output[i].out + "</td></tr>";
 					// console.log(markup);
 					//$("#team_stats > tbody").append(markup);
 					$('#live_agents > tbody:last-child').append(markup);
-					
-				}	
+
+				}
 				// setTimeout(get_team_stats, 10000);  //every 10 seconds
 			}
 		});
 
-        
+
 });
-    
-        
+
+
 </script>
 
-<script>
-    console.log(response);
-    var ctx = document.getElementById("inboundChart");
-    let data1 = {
-      datasets: [{
-         label: "Inbound Live",
-         backgroundColor: "#AF7333",
-         data: [15],
-      },{
-         label: "Calls in IVR",
-         backgroundColor: "#ff5252",
-         data: [34],
-      },{
-         label: "Calls in Queue",
-         backgroundColor: "#00acc1",
-         data: [8],
-      },{
-         label: "Drop Calls",
-         backgroundColor: "#2A7888",
-         data: [41],
-      },{
-         label: "Total Drop",
-         backgroundColor: "#FF7777",
-         data: [18],
-      },{
-         label: "Answered",
-         backgroundColor: "#109d4b",
-         data: [27],
-      },{
-         label: "Dropped Percentage",
-         backgroundColor: "#4A7888",
-         data: [17],
-      }]
-    };
 
-    let data_example = {
-    labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
-    datasets: [{
-      label: 'Inbound Live',
-      backgroundColor: "#000080",
-         data: [10, 0, 0, 0, 0, 0, 0],
-    }, {
-      label: 'Calls in IVR',
-      backgroundColor: "#d3d3d3",
-      data: [0,70,0, 0, 0, 0, 0]
-    }, {
-      label: 'Calls in Queue',
-      backgroundColor: "#add8e6",
-      data: [0,0,45, 0, 0, 0]
-    },{
-      label: 'Drop Calls',
-      backgroundColor: "#000080",
-         data: [10, 0, 0, 0, 0, 0, 0],
-    }, {
-      label: 'Total Drop',
-      backgroundColor: "#d3d3d3",
-      data: [0,70,0, 0, 0, 0, 0]
-    }, {
-      label: 'Answered',
-      backgroundColor: "#add8e6",
-      data: [0,0,45, 0, 0, 0]
-    }, {
-      label: 'Dropped Percentage',
-      backgroundColor: "#add8e6",
-      data: [0,0,45, 0, 0, 0]
-    }]
-  };
-    
-    const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: data1,
-      options: {
-        responsive: true,
-        "hover": {
-          "animationDuration": 0
-        },
-        "animation": {
-            "duration": 500,
-            "easing": 'easeInQuart',
-          "onComplete": function() {
-            var chartInstance = this.chart,
-              ctx = chartInstance.ctx;
-  
-            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'bottom';
-  
-            this.data.datasets.forEach(function(dataset, i) {
-              var meta = chartInstance.controller.getDatasetMeta(i);
-              meta.data.forEach(function(bar, index) {
-                var data = dataset.data[index];
-                ctx.fillText(data, bar._model.x, bar._model.y - 5);
-              });
-            });
-          }
-        },
-        legend: {
-          "display": true,
-          position: 'bottom'
-        },
-        tooltips: {
-          "enabled": true
-        },
-        scales: {
-          yAxes: [{
-            display: true,
-            gridLines: {
-              display: false
-            },
-            ticks: {
-            //   max: Math.max(...data.datasets[0].data) + 10,
-              display: true,
-              beginAtZero: true,
-            //   mirror: false,
-                // fontSize: 18,
-                // labelOffset: -22
-            },
-            scaleLabel: {
-                  display: true,
-                //   labelString: 'IN Taka',
-                }
-          }],
-          xAxes: [{
-            // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
-            gridLines: {
-              display: false
-            },
-            ticks: {
-              beginAtZero: true,
-                mirror: false,
-                fontSize: 18,
-                labelOffset: -22
-            }
-          }]
-        }
-      }
-    });
-</script>
 
-<script>
-    var ctx = document.getElementById("outboundChart");
-    // debugger;
-    let dataOutboundChart = {
-        // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
-      datasets: [{
-         label: "Outbound Live Calls",
-         backgroundColor: "#AF7333",
-         data: [15],
-      },{
-         label: "Outbound Failed Calls",
-         backgroundColor: "#FA4444",
-         data: [5],
-      },{
-         label: "Outbound Answered Calls",
-         backgroundColor: "#45A888",
-         data: [150],
-      }]
-    };
-    // const ctx = canvas.getContext("2d");
-    const outboundChart = new Chart(ctx, {
-      type: 'bar',
-      data: dataOutboundChart,
-      options: {
-        responsive: true,
-        "hover": {
-          "animationDuration": 0
-        },
-        "animation": {
-            "duration": 500,
-            "easing": 'easeInQuart',
-          "onComplete": function() {
-            var chartInstance = this.chart,
-              ctx = chartInstance.ctx;
-  
-            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'bottom';
-  
-            this.data.datasets.forEach(function(dataset, i) {
-              var meta = chartInstance.controller.getDatasetMeta(i);
-              meta.data.forEach(function(bar, index) {
-                var data = dataset.data[index];
-                ctx.fillText(data, bar._model.x, bar._model.y - 5);
-              });
-            });
-          }
-        },
-        legend: {
-          "display": true,
-          position: 'bottom'
-        },
-        tooltips: {
-          "enabled": true
-        },
-        scales: {
-          yAxes: [{
-            display: true,
-            gridLines: {
-              display: false
-            },
-            ticks: {
-            //   max: Math.max(...data.datasets[0].data) + 10,
-              display: true,
-              beginAtZero: true,
-            //   mirror: false,
-                // fontSize: 18,
-                // labelOffset: -22
-            },
-            scaleLabel: {
-                  display: true,
-                //   labelString: 'IN Taka',
-                }
-          }],
-          xAxes: [{
-            // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
-            gridLines: {
-              display: false
-            },
-            ticks: {
-              beginAtZero: true,
-                mirror: false,
-                fontSize: 18,
-                labelOffset: -22
-            }
-          }]
-        }
-      }
-    });
-</script>
 
 {{-- <script>
     var ctx = document.getElementById("outboundChart_test").getContext('2d');
@@ -1010,7 +987,7 @@
 
         },
         options:  {
-            "hover": 
+            "hover":
             {
                 "animationDuration": 0
             },
@@ -1035,8 +1012,8 @@
                 });
                 }
             },
-        
-        } 
+
+        }
     });
 </script> --}}
 

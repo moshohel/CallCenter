@@ -4,6 +4,9 @@ $(document).ready(function () {
     $('#simpletable').DataTable()
     $('#live_calls_table').DataTable()
 
+      $('#agent_summary_table').DataTable()
+
+      
     // [ Default Ordering ] start
     $('#order-table').DataTable({
       order: [[3, 'desc']],

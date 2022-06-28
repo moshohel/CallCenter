@@ -18,7 +18,7 @@
                       <div class="page-header-title">
                         <a href="{{ route('dashboard') }}"><h5 class="m-b-10">Dashboard</h5></a>
                       </div>
-                      
+
                   </div>
               </div>
           </div>
@@ -27,106 +27,26 @@
       <!-- [ Main Content ] start -->
       <div class="row">
           <div class="col-lg-6 col-md-12">
-              <!-- support-section start -->
-              {{-- <div class="row">
-                  <div class="col-sm-6">
-                      <div class="card support-bar overflow-hidden">
-                          <div class="card-body pb-0">
-                              <h2 class="m-0">350</h2>
-                              <span class="text-c-blue">Support Requests</span>
-                              <p class="mb-3 mt-3">Total number of support requests that come in.</p>
-                          </div>
-                          <div id="support-chart"></div>
-                          <div class="card-footer bg-primary text-white">
-                              <div class="row text-center">
-                                  <div class="col">
-                                      <h4 class="m-0 text-white">10</h4>
-                                      <span>Open</span>
-                                  </div>
-                                  <div class="col">
-                                      <h4 class="m-0 text-white">5</h4>
-                                      <span>Running</span>
-                                  </div>
-                                  <div class="col">
-                                      <h4 class="m-0 text-white">3</h4>
-                                      <span>Solved</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6">
-                      <div class="card support-bar overflow-hidden">
-                          <div class="card-body pb-0">
-                              <h2 class="m-0">350</h2>
-                              <span class="text-c-green">Support Requests</span>
-                              <p class="mb-3 mt-3">Total number of support requests that come in.</p>
-                          </div>
-                          <div id="support-chart1"></div>
-                          <div class="card-footer bg-success text-white">
-                              <div class="row text-center">
-                                  <div class="col">
-                                      <h4 class="m-0 text-white">10</h4>
-                                      <span>Open</span>
-                                  </div>
-                                  <div class="col">
-                                      <h4 class="m-0 text-white">5</h4>
-                                      <span>Running</span>
-                                  </div>
-                                  <div class="col">
-                                      <h4 class="m-0 text-white">3</h4>
-                                      <span>Solved</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div> --}}
-              <!-- support-section end -->
-
+              
               <div class="row">
+                
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h4 class="text-c-yellow">300</h4>
-                                    <h6 class="text-muted m-b-0">Total Calls</h6>
+                                    <h4 class="text-c-green" id="total_calls">0</h4>
+                                    <h6 class="text-muted m-b-0">Total</h6>
                                 </div>
                                 <div class="col-4 text-end">
-                                    <i class="feather icon-bar-chart-2 f-28"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-c-yellow">
-                            <div class="row align-items-center">
-                                <div class="col-9">
-                                    <p class="text-white m-b-0">% change</p>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <i class="feather icon-trending-up text-white f-16"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-8">
-                                    <h4 class="text-c-green">290</h4>
-                                    <h6 class="text-muted m-b-0">Inbound Calls</h6>
-                                </div>
-                                <div class="col-4 text-end">
-                                    <i class="feather icon-file-text f-28"></i>
+                                    {{-- <i class="feather icon-file-text f-28"></i> --}}
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer bg-c-green">
                             <div class="row align-items-center">
                                 <div class="col-9">
-                                    <p class="text-white m-b-0">% change</p>
+                                    <p class="text-white m-b-0">Calls</p>
                                 </div>
                                 <div class="col-3 text-end">
                                     <i class="feather icon-trending-up text-white f-16"></i>
@@ -140,43 +60,18 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h4 class="text-c-red">145</h4>
-                                    <h6 class="text-muted m-b-0">Outbound Calls</h6>
+                                    <h4 class="text-c-blue" id="total_inbound_calls">0</h4>
+                                    <h6 class="text-muted m-b-0">Total Inbound</h6>
                                 </div>
                                 <div class="col-4 text-end">
-                                    <i class="feather icon-calendar f-28"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-c-red">
-                            <div class="row align-items-center">
-                                <div class="col-9">
-                                    <p class="text-white m-b-0">% change</p>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <i class="feather icon-trending-down text-white f-16"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-8">
-                                    <h4 class="text-c-blue">5</h4>
-                                    <h6 class="text-muted m-b-0">Failed Calls</h6>
-                                </div>
-                                <div class="col-4 text-end">
-                                    <i class="feather icon-thumbs-down f-28"></i>
+                                    {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer bg-c-blue">
                             <div class="row align-items-center">
                                 <div class="col-9">
-                                    <p class="text-white m-b-0">% change</p>
+                                    <p class="text-white m-b-0">Calls</p>
                                 </div>
                                 <div class="col-3 text-end">
                                     <i class="feather icon-trending-down text-white f-16"></i>
@@ -185,6 +80,7 @@
                         </div>
                     </div>
                 </div>
+                
               </div>
           </div>
           <div class="col-lg-6 col-md-12">
@@ -195,18 +91,18 @@
                           <div class="card-body">
                               <div class="row align-items-center">
                                   <div class="col-8">
-                                      <h4 class="text-c-yellow">30</h4>
-                                      <h6 class="text-muted m-b-0">Tatal Agents</h6>
+                                      <h4 class="text-c-yellow" id="total_outbound_calls">0</h4>
+                                      <h6 class="text-muted m-b-0">Tatal Outbound</h6>
                                   </div>
                                   <div class="col-4 text-end">
-                                      <i class="feather icon-bar-chart-2 f-28"></i>
+                                      {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
                                   </div>
                               </div>
                           </div>
                           <div class="card-footer bg-c-yellow">
                               <div class="row align-items-center">
                                   <div class="col-9">
-                                      <p class="text-white m-b-0">% change</p>
+                                      <p class="text-white m-b-0">Calls</p>
                                   </div>
                                   <div class="col-3 text-end">
                                       <i class="feather icon-trending-up text-white f-16"></i>
@@ -215,85 +111,39 @@
                           </div>
                       </div>
                   </div>
+                  
                   <div class="col-sm-6">
                       <div class="card">
                           <div class="card-body">
                               <div class="row align-items-center">
                                   <div class="col-8">
-                                      <h4 class="text-c-green">29</h4>
-                                      <h6 class="text-muted m-b-0">Active Agents</h6>
+                                      <h4 class="text-c-red" id="total_failed_calls">0</h4>
+                                      <h6 class="text-muted m-b-0">Total Failed</h6>
                                   </div>
                                   <div class="col-4 text-end">
-                                      <i class="feather icon-file-text f-28"></i>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="card-footer bg-c-green">
-                              <div class="row align-items-center">
-                                  <div class="col-9">
-                                      <p class="text-white m-b-0">% change</p>
-                                  </div>
-                                  <div class="col-3 text-end">
-                                      <i class="feather icon-trending-up text-white f-16"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6">
-                      <div class="card">
-                          <div class="card-body">
-                              <div class="row align-items-center">
-                                  <div class="col-8">
-                                      <h4 class="text-c-red">5</h4>
-                                      <h6 class="text-muted m-b-0">Call in Queue</h6>
-                                  </div>
-                                  <div class="col-4 text-end">
-                                      <i class="feather icon-calendar f-28"></i>
+                                      {{-- <i class="feather icon-calendar f-28"></i> --}}
+                                      <i class="feather icon-thumbs-down f-28"></i>
                                   </div>
                               </div>
                           </div>
                           <div class="card-footer bg-c-red">
                               <div class="row align-items-center">
                                   <div class="col-9">
-                                      <p class="text-white m-b-0">% change</p>
+                                      <p class="text-white m-b-0">Calls</p>
                                   </div>
                                   <div class="col-3 text-end">
                                       <i class="feather icon-trending-down text-white f-16"></i>
+                                      {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
                                   </div>
                               </div>
                           </div>
                       </div>
                   </div>
-                  <div class="col-sm-6">
-                      <div class="card">
-                          <div class="card-body">
-                              <div class="row align-items-center">
-                                  <div class="col-8">
-                                      <h4 class="text-c-blue">1</h4>
-                                      <h6 class="text-muted m-b-0">Paused Agents</h6>
-                                  </div>
-                                  <div class="col-4 text-end">
-                                      <i class="feather icon-thumbs-down f-28"></i>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="card-footer bg-c-blue">
-                              <div class="row align-items-center">
-                                  <div class="col-9">
-                                      <p class="text-white m-b-0">% change</p>
-                                  </div>
-                                  <div class="col-3 text-end">
-                                      <i class="feather icon-trending-down text-white f-16"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                  
               </div>
               <!-- page statustic card end -->
           </div>
-          
+
           <!-- Charts start -->
 
           <div class="row">
@@ -312,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="col-lg-6 col-md-12">
@@ -322,12 +172,12 @@
                     </div>
                     <div class="card-body">
                         <div class="text-center">
-                            
+
                             <h5>Total Outbound Call Status<br><span class="badge badge-danger">Festival</span></h5>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             {{-- <div class="col-lg-6 col-md-12">
@@ -337,12 +187,12 @@
                     </div>
                     <div class="card-body">
                         <div class="text-center">
-                            
+
                             <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="col-lg-6 col-md-6">
@@ -359,7 +209,7 @@
         </div>
 
         {{-- <div class="row">
-        
+
             <div class="col-xl-6 col-md-12">
                 <div class="card card-no-hover m-b-30">
                   <div class="card-header">
@@ -386,7 +236,7 @@
                 </div>
               </div>
 
-              
+
         </div> --}}
 
         {{-- <div class="row">
@@ -419,11 +269,11 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Agent Summery</h5>
+                        <h5>Agent Summary</h5>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
-                            <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                            <table id="agent_summary_table" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
                                         <th>Agent Name</th>
@@ -437,197 +287,17 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>66</td>
-                                        <td>9</td>
-                                        <td>13</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                        <td>test</td>
                                     </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>09.00 AM</td>
-                                        <td>07.00 PM</td>
-                                        <td>7.9</td>
-                                        <td>44</td>
-                                        <td>8</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>34</td>
-                                        <td>7</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>43</td>
-                                        <td>3</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airi Satou</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>9</td>
-                                        <td>33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brielle Williamson</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>35</td>
-                                        <td>2</td>
-                                        <td>66</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Herrod Chandler</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>15</td>
-                                        <td>8</td>
-                                        <td>21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rhona Davidson</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>45</td>
-                                        <td>2</td>
-                                        <td>18</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Colleen Hurst</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonya Frost</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jena Gaines</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charde Marshall</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Haley Kennedy</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tatyana Fitzpatrick</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael Silva</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Paul Byrd</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gloria Little</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bradley Greer</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dai Rios</td>
-                                        <td>08.00 AM</td>
-                                        <td>02.00 PM</td>
-                                        <td>6</td>
-                                        <td>25</td>
-                                        <td>5</td>
-                                        <td>13</td>
-                                    </tr>
+
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Agent Name</th>
-                                        <th>Login Time</th>
-                                        <th>Last LogOut</th>
-                                        <th>Working Hours</th>
-                                        <th>Incoming Calls</th>
-                                        <th>Outgoing Calls</th>
-                                        <th>Pause Time</th>
-                                    </tr>
-                                </tfoot>
+
                             </table>
                         </div>
                     </div>
@@ -666,199 +336,260 @@
 <script src={{ asset("assets/js/pages/data-basic-custom.js") }}></script>
 
 <script>
-    var ctx = document.getElementById("inboundChart");
-    let data1 = {
-      datasets: [{
-         label: "Answer",
-         backgroundColor: "#AF7333",
-         data: [15],
-      },{
-         label: "Total Calls",
-         backgroundColor: "#ff5252",
-         data: [34],
-      },{
-         label: "Drop Calls",
-         backgroundColor: "#00acc1",
-         data: [8],
-      },{
-         label: "IVR Drop",
-         backgroundColor: "#2A7888",
-         data: [41],
-      },{
-         label: "Queue Drop",
-         backgroundColor: "#FF7777",
-         data: [18],
-      }]
-    };
+
+    function inboundStatusChartFun(response)
+    {
+        var ctx = document.getElementById("inboundChart");
+        let data1 = {
+        datasets: [{
+            label: "Answer",
+            backgroundColor: "#AF7333",
+            data: [15],
+        },{
+            label: "Total Calls",
+            backgroundColor: "#ff5252",
+            data: [34],
+        },{
+            label: "Drop Calls",
+            backgroundColor: "#00acc1",
+            data: [8],
+        },{
+            label: "IVR Drop",
+            backgroundColor: "#2A7888",
+            data: [41],
+        },{
+            label: "Queue Drop",
+            backgroundColor: "#FF7777",
+            data: [18],
+        }]
+        };
+
+        const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: data1,
+        options: {
+            responsive: true,
+            "hover": {
+            "animationDuration": 0
+            },
+            "animation": {
+                "duration": 500,
+                "easing": 'easeInQuart',
+            "onComplete": function() {
+                var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function(dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function(bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                });
+                });
+            }
+            },
+            legend: {
+            "display": true,
+            position: 'bottom'
+            },
+            tooltips: {
+            "enabled": true
+            },
+            scales: {
+            yAxes: [{
+                display: true,
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                //   max: Math.max(...data.datasets[0].data) + 10,
+                display: true,
+                beginAtZero: true,
+                //   mirror: false,
+                    // fontSize: 18,
+                    // labelOffset: -22
+                },
+                scaleLabel: {
+                    display: true,
+                    //   labelString: 'IN Taka',
+                    }
+            }],
+            xAxes: [{
+                // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                beginAtZero: true,
+                    mirror: false,
+                    fontSize: 18,
+                    labelOffset: -22
+                }
+            }]
+            }
+        }
+        });
+    }
+
     
-    const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: data1,
-      options: {
-        responsive: true,
-        "hover": {
-          "animationDuration": 0
-        },
-        "animation": {
-            "duration": 500,
-            "easing": 'easeInQuart',
-          "onComplete": function() {
-            var chartInstance = this.chart,
-              ctx = chartInstance.ctx;
-  
-            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'bottom';
-  
-            this.data.datasets.forEach(function(dataset, i) {
-              var meta = chartInstance.controller.getDatasetMeta(i);
-              meta.data.forEach(function(bar, index) {
-                var data = dataset.data[index];
-                ctx.fillText(data, bar._model.x, bar._model.y - 5);
-              });
-            });
-          }
-        },
-        legend: {
-          "display": true,
-          position: 'bottom'
-        },
-        tooltips: {
-          "enabled": true
-        },
-        scales: {
-          yAxes: [{
-            display: true,
-            gridLines: {
-              display: false
-            },
-            ticks: {
-            //   max: Math.max(...data.datasets[0].data) + 10,
-              display: true,
-              beginAtZero: true,
-            //   mirror: false,
-                // fontSize: 18,
-                // labelOffset: -22
-            },
-            scaleLabel: {
-                  display: true,
-                //   labelString: 'IN Taka',
-                }
-          }],
-          xAxes: [{
-            // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
-            gridLines: {
-              display: false
-            },
-            ticks: {
-              beginAtZero: true,
-                mirror: false,
-                fontSize: 18,
-                labelOffset: -22
-            }
-          }]
-        }
-      }
-    });
 </script>
 
 <script>
-    var ctx = document.getElementById("outboundChart");
-    // debugger;
-    let dataOutboundChart = {
-        // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
-      datasets: [{
-         label: "Total Calls",
-         backgroundColor: "#AF7333",
-         data: [75],
-      },{
-         label: "Success Calls",
-         backgroundColor: "#45A888",
-         data: [46],
-      },{
-         label: "Outbound Failed Calls",
-         backgroundColor: "#FA4444",
-         data: [4],
-      }]
-    };
-    // const ctx = canvas.getContext("2d");
-    const outboundChart = new Chart(ctx, {
-      type: 'bar',
-      data: dataOutboundChart,
-      options: {
-        responsive: true,
-        "hover": {
-          "animationDuration": 0
-        },
-        "animation": {
-            "duration": 500,
-            "easing": 'easeInQuart',
-          "onComplete": function() {
-            var chartInstance = this.chart,
-              ctx = chartInstance.ctx;
-  
-            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'bottom';
-  
-            this.data.datasets.forEach(function(dataset, i) {
-              var meta = chartInstance.controller.getDatasetMeta(i);
-              meta.data.forEach(function(bar, index) {
-                var data = dataset.data[index];
-                ctx.fillText(data, bar._model.x, bar._model.y - 5);
-              });
-            });
-          }
-        },
-        legend: {
-          "display": true,
-          position: 'bottom'
-        },
-        tooltips: {
-          "enabled": true
-        },
-        scales: {
-          yAxes: [{
-            display: true,
-            gridLines: {
-              display: false
-            },
-            ticks: {
-            //   max: Math.max(...data.datasets[0].data) + 10,
-              display: true,
-              beginAtZero: true,
-            //   mirror: false,
-                // fontSize: 18,
-                // labelOffset: -22
-            },
-            scaleLabel: {
-                  display: true,
-                //   labelString: 'IN Taka',
-                }
-          }],
-          xAxes: [{
+
+    function outboundStatusChartFun(response)
+
+    {
+        var ctx = document.getElementById("outboundChart");
+        // debugger;
+        let dataOutboundChart = {
             // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
-            gridLines: {
-              display: false
+        datasets: [{
+            label: "Total Calls",
+            backgroundColor: "#AF7333",
+            data: [75],
+        },{
+            label: "Success Calls",
+            backgroundColor: "#45A888",
+            data: [46],
+        },{
+            label: "Outbound Failed Calls",
+            backgroundColor: "#FA4444",
+            data: [4],
+        }]
+        };
+        // const ctx = canvas.getContext("2d");
+        const outboundChart = new Chart(ctx, {
+        type: 'bar',
+        data: dataOutboundChart,
+        options: {
+            responsive: true,
+            "hover": {
+            "animationDuration": 0
             },
-            ticks: {
-              beginAtZero: true,
-                mirror: false,
-                fontSize: 18,
-                labelOffset: -22
+            "animation": {
+                "duration": 500,
+                "easing": 'easeInQuart',
+            "onComplete": function() {
+                var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+
+                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+
+                this.data.datasets.forEach(function(dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function(bar, index) {
+                    var data = dataset.data[index];
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                });
+                });
             }
-          }]
+            },
+            legend: {
+            "display": true,
+            position: 'bottom'
+            },
+            tooltips: {
+            "enabled": true
+            },
+            scales: {
+            yAxes: [{
+                display: true,
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                //   max: Math.max(...data.datasets[0].data) + 10,
+                display: true,
+                beginAtZero: true,
+                //   mirror: false,
+                    // fontSize: 18,
+                    // labelOffset: -22
+                },
+                scaleLabel: {
+                    display: true,
+                    //   labelString: 'IN Taka',
+                    }
+            }],
+            xAxes: [{
+                // labels: ["Inbound Live", "Calls in IVR", "Calls in Queue", "Drop Calls", "Total Drop", "Answered", "Dropped Percentage"],
+                gridLines: {
+                display: false
+                },
+                ticks: {
+                beginAtZero: true,
+                    mirror: false,
+                    fontSize: 18,
+                    labelOffset: -22
+                }
+            }]
+            }
         }
-      }
-    });
+        });
+    }
+
+    
 </script>
 
 <script>
+    // const total_calls = document.getElementById("total_calls");
+
+    $(document).ready(function(){
+        let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        // API CAll and DATA TABLE DATA APPEND for LIVE CALLS
+        $.ajax({
+			async: true,
+			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
+			type: 'post', //  or POST $(this).attr('method')
+			url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
+			dataType : 'json',
+			beforeSend: function(  ) {
+				//$('#myModal').modal('toggle');
+			}
+		})
+		.done(function( response ) {
+			//alert('hi');
+			console.log(response);
+            if(response.success=='y'){
+				//$("#team_stats").empty();
+                inboundStatusChartFun(response);
+                outboundStatusChartFun(response);
+                $('#total_calls').html(response.c_total_call);
+                $('#total_inbound_calls').html(response.c_total_agent);
+                $('#total_outbound_calls').html(response.c_paused_agent);
+                $('#total_failed_calls').html(response.c_logged_in_agent);
+                //live_calls.innerText = response.live_calls_dataset.length;
+                // $('#live_calls').html(response.live_calls_dataset.length);
+
+				$("#agent_summary_table tbody tr").remove();
+				var output=response.live_calls_dataset;
+				// console.log(output);
+				for (i = 0; i < output.length; ++i) {
+					var markup = "<tr><td>"+output[i].campaign+"</td><td>" + output[i].did + "</td><td>" + output[i].customer_no  + "</td><td>" + output[i].call_status + "</td><td>" + output[i].agent_name + "</td><td>" + output[i].agent_extension + "</td><td>" + output[i].duration + "</td></tr>";
+					// console.log(markup);
+					//$("#team_stats > tbody").append(markup);
+					$('#agent_summary_table > tbody:last-child').append(markup);
+				}
+				// setTimeout(get_team_stats, 10000);  //every 10 seconds
+			}
+		});
+    });
+
+
+</script>
+
+{{-- <script>
     var colors = ["red", "green","blue","orange","brown"];
-    (function ($) 
+    (function ($)
     {
     'use strict';
-    if ($("#apexchart-006").length) 
+    if ($("#apexchart-006").length)
         {
 
             var options = {
@@ -923,14 +654,14 @@
             chart.render();
         }
     })(window.jQuery);
-</script>
+</script> --}}
 
-<script>
+{{-- <script>
     var colors = ["red", "green","blue","orange","brown"];
-    (function ($) 
+    (function ($)
     {
     'use strict';
-    if ($("#call_stats").length) 
+    if ($("#call_stats").length)
         {
 
             var options = {
@@ -995,7 +726,7 @@
             chart.render();
         }
     })(window.jQuery);
-</script>
+</script> --}}
 
 {{-- <script>
     /*======== 14. CURRENT USER BAR CHART ========*/
@@ -1020,7 +751,7 @@
         labels: xValues,
         datasets: [
           {
-            
+
             // label: "Italy",
             data: yValues,
             // data: [2, 3.2, 1.8, 2.1, 1.5, 3.5, 4, 2.3, 2.9, 4.5, 1.8, 3.4, 2.8],
@@ -1058,7 +789,7 @@
           ],
           yAxes: [
             {
-              
+
               gridLines: {
                 drawBorder: true,
                 display: true,
@@ -1076,7 +807,7 @@
                 labelString: 'Age Group',
 
               }
-              
+
             }
           ]
         },

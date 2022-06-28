@@ -29,7 +29,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/live', [AdminController::class, 'live'])->name('live');
-    Route::post('/apiLiveAgents', [AdminController::class, 'apiLiveAgents'])->name('apiLiveAgents');
+    Route::post('/apiLiveDashboard', [AdminController::class, 'apiLiveDashboard'])->name('apiLiveDashboard');
     Route::post('/apiLive', [AdminController::class, 'apiLive'])->name('apiLive');
 });
 
