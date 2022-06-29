@@ -47,18 +47,18 @@
         <div class="row">
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body bg-c-green">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-yellow" id="total_calls">0</h4>
-                                <h6 class="text-muted m-b-0">Total Calls</h6>
+                                <h4 class="text-white" id="total_calls">0</h4>
+                                <h6 class="text-white m-b-0">Total Calls</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <i class="feather icon-bar-chart-2 f-28"></i>
+                                {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-c-yellow">
+                    <div class="card-footer bg-c-green">
                         <div class="row align-items-center">
                             <div class="col-9">
                                 <p class="text-white m-b-0">Total</p>
@@ -72,14 +72,14 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body bg-c-red">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-green" id="live_calls">0</h4>
-                                <h6 class="text-muted m-b-0">Live Calls</h6>
+                                <h4 class="text-white" id="live_calls">0</h4>
+                                <h6 class="text-white m-b-0">Live Calls</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <i class="feather icon-file-text f-28"></i>
+                                {{-- <i class="feather icon-file-text f-28"></i> --}}
                             </div>
                         </div>
                     </div>
@@ -97,14 +97,14 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body bg-c-purple">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-yellow" id="total_agents">0</h4>
-                                <h6 class="text-muted m-b-0">Total </h6>
+                                <h4 class="text-white" id="total_agents">0</h4>
+                                <h6 class="text-white m-b-0">Total </h6>
                             </div>
                             <div class="col-4 text-end">
-                                <i class="feather icon-bar-chart-2 f-28"></i>
+                                {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
                             </div>
                         </div>
                     </div>
@@ -122,14 +122,14 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body bg-c-green">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-green" id="logged_id_agents">0</h4>
-                                <h6 class="text-muted m-b-0">Logged In</h6>
+                                <h4 class="text-white" id="logged_id_agents">0</h4>
+                                <h6 class="text-white m-b-0">Logged In</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <i class="feather icon-file-text f-28"></i>
+                                {{-- <i class="feather icon-file-text f-28"></i> --}}
                             </div>
                         </div>
                     </div>
@@ -147,18 +147,18 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body bg-c-yellow">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-c-blue"  id="paused_agents">0</h4>
-                                <h6 class="text-muted m-b-0">Paused</h6>
+                                <h4 class="text-white"  id="paused_agents">0</h4>
+                                <h6 class="text-white m-b-0">Paused</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <i class="feather icon-thumbs-down f-28"></i>
+                                {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-c-red">
+                    <div class="card-footer bg-c-yellow">
                         <div class="row align-items-center">
                             <div class="col-9">
                                 <p class="text-white m-b-0"> Agents</p>
@@ -248,6 +248,133 @@
                 </div>
             </div>
         </div> --}}
+
+        <!-- [ vertically-modal ] start -->		
+					
+        <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
+                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button> --}}
+                    </div>
+                    {{-- <h6 style="text-align: center">Loading...</h6> --}}
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-secondary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-success" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-danger" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-info" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-light" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+						
+		<!-- [ vertically-modal ] end -->
+
+
+
+
+        {{-- <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 style="text-align: center">Loading...</h6>
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-grow text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-secondary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-success" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-danger" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-info" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            
+                            <div class="spinner-grow text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-light" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12" id="loading_spinner">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 style="text-align: center">Loading...</h6>
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-secondary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-success" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-danger" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-info" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-light" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+
+        
 
         <div class="row">
             <div class="col-lg-6 col-md-12">
@@ -670,7 +797,7 @@
     function incrementSeconds() {
         seconds += 1;
         el.innerText = seconds;
-        if(seconds==1000)
+        if(seconds==100)
         {
 
             // alert('hi');
@@ -717,11 +844,14 @@
         data: data1,
         options: {
             responsive: true,
+            layout: {
+                padding: 20
+            },
             "hover": {
             "animationDuration": 0
             },
             "animation": {
-                "duration": 500,
+                "duration": 50,
                 "easing": 'easeInQuart',
             "onComplete": function() {
                 var chartInstance = this.chart,
@@ -814,11 +944,14 @@
         data: dataOutboundChart,
         options: {
             responsive: true,
+            layout: {
+                padding: 20
+            },
             "hover": {
             "animationDuration": 0
             },
             "animation": {
-                "duration": 500,
+                "duration": 50,
                 "easing": 'easeInQuart',
             "onComplete": function() {
                 var chartInstance = this.chart,
@@ -901,10 +1034,11 @@
 			url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
 			dataType : 'json',
 			beforeSend: function(  ) {
-				//$('#myModal').modal('toggle');
+				$('#exampleModalCenter').modal('toggle');
 			}
 		})
 		.done(function( response ) {
+            $('#exampleModalCenter').modal('toggle');
 			//alert('hi');
 			console.log(response);
             if(response.success=='y'){

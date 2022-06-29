@@ -27,13 +27,13 @@
         <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-aperture"></i></span><span class="pcoded-mtext">Dashboard</span></a></li>
         <li class="nav-item"><a href="{{ route('live') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Live</span></a></li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fas fa-folder-open"></i></span><span class="pcoded-mtext">Reports</span></a>
           <ul class="pcoded-submenu">
-            <li><a href="index.html">Default</a></li>
-            <li><a href="dashboard-sale.html">Sales</a></li>
+            <li><a href="{{ route('report.call') }}">Call Report</a></li>
+            {{-- <li><a href="dashboard-sale.html">Sales</a></li>
             <li><a href="dashboard-crm.html">CRM</a></li>
             <li><a href="dashboard-analytics.html">Analytics</a></li>
-            <li><a href="dashboard-project.html">Project</a></li>
+            <li><a href="dashboard-project.html">Project</a></li> --}}
           </ul>
         </li>
         {{-- <li class="nav-item pcoded-hasmenu">

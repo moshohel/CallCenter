@@ -27,9 +27,9 @@
       <!-- [ Main Content ] start -->
       <div class="row">
           <div class="col-lg-6 col-md-12">
-              
+
               <div class="row">
-                
+
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                
+
               </div>
           </div>
           <div class="col-lg-6 col-md-12">
@@ -111,7 +111,7 @@
                           </div>
                       </div>
                   </div>
-                  
+
                   <div class="col-sm-6">
                       <div class="card">
                           <div class="card-body">
@@ -139,10 +139,63 @@
                           </div>
                       </div>
                   </div>
-                  
+
               </div>
               <!-- page statustic card end -->
           </div>
+
+
+        <!-- [ vertically-modal ] start -->		
+					
+        <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
+                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button> --}}
+                    </div>
+                    {{-- <h6 style="text-align: center">Loading...</h6> --}}
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-secondary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-success" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-danger" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-warning" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-info" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-border text-light" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+        <!-- [ vertically-modal ] end -->
+
 
           <!-- Charts start -->
 
@@ -282,7 +335,7 @@
                                         <th>Working Hours</th>
                                         <th>Incoming Calls</th>
                                         <th>Outgoing Calls</th>
-                                        <th>Pause Time</th>
+                                        {{-- <th>Pause Time</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -293,7 +346,7 @@
                                         <td>test</td>
                                         <td>test</td>
                                         <td>test</td>
-                                        <td>test</td>
+                                        {{-- <td>test</td> --}}
                                     </tr>
 
                                 </tbody>
@@ -337,38 +390,49 @@
 
 <script>
 
+    // Chart.defaults.color = "#ff0000";
     function inboundStatusChartFun(response)
     {
         var ctx = document.getElementById("inboundChart");
-        let data1 = {
+        let data = {
         datasets: [{
             label: "Answer",
             backgroundColor: "#AF7333",
-            data: [15],
+            data: [response.c_answered_in],
         },{
             label: "Total Calls",
             backgroundColor: "#ff5252",
-            data: [34],
+            data: [response.c_in],
         },{
             label: "Drop Calls",
             backgroundColor: "#00acc1",
-            data: [8],
+            data: [response.c_dropped],
         },{
             label: "IVR Drop",
             backgroundColor: "#2A7888",
-            data: [41],
+            data: [response.c_callmenu_dropped],
         },{
             label: "Queue Drop",
             backgroundColor: "#FF7777",
-            data: [18],
+            data: [response.c_ingroup_dropped],
         }]
         };
 
+        // console.log(data.datasets[0].data[0]);
+        // console.log(data.datasets[1].data);
+        // console.log(data.datasets[2].data);
+        // console.log(data.datasets[3].data);
+        // console.log(data.datasets[4].data);
+
+
         const myChart = new Chart(ctx, {
         type: 'bar',
-        data: data1,
+        data: data,
         options: {
             responsive: true,
+            layout: {
+                padding: 20
+            },
             "hover": {
             "animationDuration": 0
             },
@@ -387,7 +451,7 @@
                 var meta = chartInstance.controller.getDatasetMeta(i);
                 meta.data.forEach(function(bar, index) {
                     var data = dataset.data[index];
-                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                    ctx.fillText(data, bar._model.x, bar._model.y - 1);
                 });
                 });
             }
@@ -407,6 +471,7 @@
                 },
                 ticks: {
                 //   max: Math.max(...data.datasets[0].data) + 10,
+
                 display: true,
                 beginAtZero: true,
                 //   mirror: false,
@@ -435,7 +500,7 @@
         });
     }
 
-    
+
 </script>
 
 <script>
@@ -450,15 +515,15 @@
         datasets: [{
             label: "Total Calls",
             backgroundColor: "#AF7333",
-            data: [75],
+            data: [response.c_out],
         },{
             label: "Success Calls",
             backgroundColor: "#45A888",
-            data: [46],
+            data: [response.c_answered_out],
         },{
             label: "Outbound Failed Calls",
             backgroundColor: "#FA4444",
-            data: [4],
+            data: [response.c_failed_out],
         }]
         };
         // const ctx = canvas.getContext("2d");
@@ -467,6 +532,9 @@
         data: dataOutboundChart,
         options: {
             responsive: true,
+            layout: {
+                padding: 20
+            },
             "hover": {
             "animationDuration": 0
             },
@@ -533,7 +601,7 @@
         });
     }
 
-    
+
 </script>
 
 <script>
@@ -547,31 +615,32 @@
 			async: true,
 			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
 			type: 'post', //  or POST $(this).attr('method')
-			url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
+			url:  '{{ env('Dashboard_API_URL') }}',// the file to call //$(this).attr('action')
 			dataType : 'json',
 			beforeSend: function(  ) {
-				//$('#myModal').modal('toggle');
+				// $('#exampleModalCenter').modal('toggle');
 			}
 		})
 		.done(function( response ) {
-			//alert('hi');
+            // $('#exampleModalCenter').modal('toggle');
 			console.log(response);
             if(response.success=='y'){
 				//$("#team_stats").empty();
                 inboundStatusChartFun(response);
                 outboundStatusChartFun(response);
                 $('#total_calls').html(response.c_total_call);
-                $('#total_inbound_calls').html(response.c_total_agent);
-                $('#total_outbound_calls').html(response.c_paused_agent);
-                $('#total_failed_calls').html(response.c_logged_in_agent);
+                $('#total_inbound_calls').html(response.c_in);
+                $('#total_outbound_calls').html(response.c_out);
+                $('#total_failed_calls').html(response.c_failed_out);
                 //live_calls.innerText = response.live_calls_dataset.length;
                 // $('#live_calls').html(response.live_calls_dataset.length);
 
 				$("#agent_summary_table tbody tr").remove();
-				var output=response.live_calls_dataset;
+				var output=response.agent_summary_dataset;
 				// console.log(output);
+                // <td>" + output[i].pause_time + "</td>
 				for (i = 0; i < output.length; ++i) {
-					var markup = "<tr><td>"+output[i].campaign+"</td><td>" + output[i].did + "</td><td>" + output[i].customer_no  + "</td><td>" + output[i].call_status + "</td><td>" + output[i].agent_name + "</td><td>" + output[i].agent_extension + "</td><td>" + output[i].duration + "</td></tr>";
+					var markup = "<tr><td>"+output[i].name+"</td><td>" + output[i].login_time + "</td><td>" + output[i].logout_time  + "</td><td>" + output[i].working_hour + "</td><td>" + output[i].c_in + "</td><td>" + output[i].c_out + "</td></tr>";
 					// console.log(markup);
 					//$("#team_stats > tbody").append(markup);
 					$('#agent_summary_table > tbody:last-child').append(markup);
