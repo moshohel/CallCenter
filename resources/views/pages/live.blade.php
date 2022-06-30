@@ -47,11 +47,11 @@
         <div class="row">
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body bg-c-green">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-white" id="total_calls">0</h4>
-                                <h6 class="text-white m-b-0">Total Calls</h6>
+                                <h2 id="total_calls">0</h2>
+                                <h6 class=" m-b-0">Total</h6>
                             </div>
                             <div class="col-4 text-end">
                                 {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
@@ -61,7 +61,7 @@
                     <div class="card-footer bg-c-green">
                         <div class="row align-items-center">
                             <div class="col-9">
-                                <p class="text-white m-b-0">Total</p>
+                                <p class="text-white m-b-0">Call</p>
                             </div>
                             <div class="col-3 text-end">
                                 <i class="feather icon-trending-up text-white f-16"></i>
@@ -72,11 +72,11 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body bg-c-red">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-white" id="live_calls">0</h4>
-                                <h6 class="text-white m-b-0">Live Calls</h6>
+                                <h2 id="live_calls">0</h2>
+                                <h6 class=" m-b-0">Live</h6>
                             </div>
                             <div class="col-4 text-end">
                                 {{-- <i class="feather icon-file-text f-28"></i> --}}
@@ -86,7 +86,7 @@
                     <div class="card-footer bg-c-red">
                         <div class="row align-items-center">
                             <div class="col-9">
-                                <p class="text-white m-b-0">Live</p>
+                                <p class="text-white m-b-0">Call</p>
                             </div>
                             <div class="col-3 text-end">
                                 <i class="feather icon-trending-up text-white f-16"></i>
@@ -97,11 +97,11 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body bg-c-purple">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-white" id="total_agents">0</h4>
-                                <h6 class="text-white m-b-0">Total </h6>
+                                <h2  id="total_agents">0</h2>
+                                <h6 class=" m-b-0">Total </h6>
                             </div>
                             <div class="col-4 text-end">
                                 {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
@@ -111,7 +111,7 @@
                     <div class="card-footer bg-c-purple">
                         <div class="row align-items-center">
                             <div class="col-9">
-                                <p class="text-white m-b-0">Agents</p>
+                                <p class="text-white m-b-0">Agent</p>
                             </div>
                             <div class="col-3 text-end">
                                 <i class="feather icon-trending-up text-white f-16"></i>
@@ -122,11 +122,11 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body bg-c-green">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-white" id="logged_id_agents">0</h4>
-                                <h6 class="text-white m-b-0">Logged In</h6>
+                                <h2 id="logged_id_agents">0</h2>
+                                <h6 class=" m-b-0">Logged In</h6>
                             </div>
                             <div class="col-4 text-end">
                                 {{-- <i class="feather icon-file-text f-28"></i> --}}
@@ -147,11 +147,11 @@
             </div>
             <div class="col-lg col-md-6">
                 <div class="card">
-                    <div class="card-body bg-c-yellow">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h4 class="text-white"  id="paused_agents">0</h4>
-                                <h6 class="text-white m-b-0">Paused</h6>
+                                <h2  id="paused_agents">0</h2>
+                                <h6 class=" m-b-0">Paused</h6>
                             </div>
                             <div class="col-4 text-end">
                                 {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
@@ -161,7 +161,7 @@
                     <div class="card-footer bg-c-yellow">
                         <div class="row align-items-center">
                             <div class="col-9">
-                                <p class="text-white m-b-0"> Agents</p>
+                                <p class="text-white m-b-0"> Agent</p>
                             </div>
                             <div class="col-3 text-end">
                                 <i class="feather icon-trending-down text-white f-16"></i>
@@ -254,16 +254,17 @@
         <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
+                <div class="modal-content ">
+                    <div>
+                        <h5 class="modal-title m-4 text-primary" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
                         {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button> --}}
                     </div>
                     {{-- <h6 style="text-align: center">Loading...</h6> --}}
-                    <div class="modal-body">
+                    <div class="modal-body m-5">
                         <div class="d-flex justify-content-center">
-                            <div class="spinner-border text-primary" role="status">
+                            <img style="width: 30%; height: 30%;" src={{ asset('assets/images/loading3.gif') }} alt="">
+                            {{-- <div class="spinner-border text-primary" role="status">
                                 <span class="sr-only">Loading...</span>
                             </div>
                             <div class="spinner-border text-secondary" role="status">
@@ -287,20 +288,22 @@
                             </div>
                             <div class="spinner-border text-light" role="status">
                                 <span class="sr-only">Loading...</span>
-                            </div>
+                            </div> --}}
                         </div>
                         
                     </div>
-                    <div class="modal-footer">
-                        
-                    </div>
+                    
                 </div>
             </div>
         </div>
 						
 		<!-- [ vertically-modal ] end -->
 
-
+        <div class="modal-content" style="display: none" id="spinner_gif">
+            <div class="modal-body" style="position: center">
+                <img src={{ asset('assets/images/spinnervlll.gif') }} alt="">
+            </div>
+        </div>
 
 
         {{-- <div class="row">
@@ -851,7 +854,7 @@
             "animationDuration": 0
             },
             "animation": {
-                "duration": 50,
+                "duration": 500,
                 "easing": 'easeInQuart',
             "onComplete": function() {
                 var chartInstance = this.chart,
@@ -1025,6 +1028,13 @@
 
     $(document).ready(function(){
         let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        // $('#exampleModalCenter').modal('toggle');
+        $('#exampleModalCenter').modal('show');
+        // $('#spinner_gif').show();
+        
+        setTimeout(function() {
+            $('#exampleModalCenter').modal('hide');
+        }, 1000);
 
         // API CAll and DATA TABLE DATA APPEND for LIVE CALLS
         $.ajax({
@@ -1034,15 +1044,19 @@
 			url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
 			dataType : 'json',
 			beforeSend: function(  ) {
-				$('#exampleModalCenter').modal('toggle');
+				// $('#exampleModalCenter').modal('show');
+				// $('#exampleModalCenter').modal('toggle');
+                
 			}
 		})
 		.done(function( response ) {
-            $('#exampleModalCenter').modal('toggle');
-			//alert('hi');
+            //alert('hi');
+            // $('#exampleModalCenter').modal('hide');
+            // $('#exampleModalCenter').modal('toggle');
 			console.log(response);
             if(response.success=='y'){
 				//$("#team_stats").empty();
+                // $('#spinner_gif').hide();
                 inboundChartFun(response);
                 outboundChartFun(response);
                 $('#total_calls').html(response.c_total_call);
@@ -1061,30 +1075,10 @@
 					// console.log(markup);
 					//$("#team_stats > tbody").append(markup);
 					$('#live_calls_table > tbody:last-child').append(markup);
-
 				}
 				// setTimeout(get_team_stats, 10000);  //every 10 seconds
-			}
-		});
-
-        // API CAll and DATA TABLE DATA APPEND for LIVE AGENSTS
-        $.ajax({
-			async: true,
-			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
-			type: 'post', //  or POST $(this).attr('method')
-			url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
-			dataType : 'json',
-			beforeSend: function(  ) {
-				//$('#myModal').modal('toggle');
-			}
-		})
-		.done(function( response ) {
-			//alert('hi');
-			// console.log(response);
-            if(response.success=='y'){
-				//$("#team_stats").empty();
-
-				$("#live_agents tbody tr").remove();
+                
+                $("#live_agents tbody tr").remove();
 				var output=response.live_agents_dataset;
 				// console.log(output);
 				for (i = 0; i < output.length; ++i) {
@@ -1095,11 +1089,39 @@
 					$('#live_agents > tbody:last-child').append(markup);
 
 				}
-				// setTimeout(get_team_stats, 10000);  //every 10 seconds
 			}
 		});
 
+        // $('#exampleModalCenter').modal('hide');
 
+        // // API CAll and DATA TABLE DATA APPEND for LIVE AGENSTS
+        // $.ajax({
+		// 	async: true,
+		// 	data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
+		// 	type: 'post', //  or POST $(this).attr('method')
+		// 	url:  '{{ env('Live_API_URL') }}',// the file to call //$(this).attr('action')
+		// 	dataType : 'json',
+		// 	beforeSend: function(  ) {
+		// 		//$('#myModal').modal('toggle');
+		// 	}
+		// })
+		// .done(function( response ) {
+		// 	//alert('hi');
+		// 	// console.log(response);
+        //     if(response.success=='y'){
+		// 		//$("#team_stats").empty();
+		// 		$("#live_agents tbody tr").remove();
+		// 		var output=response.live_agents_dataset;
+		// 		// console.log(output);
+		// 		for (i = 0; i < output.length; ++i) {
+		// 			var markup = "<tr><td>"+output[i].extension+"</td><td>" + output[i].name + "</td><td>" + output[i].status  + "</td><td>" + output[i].reason + "</td><td>" + output[i].duration + "</td><td>" + output[i].in + "</td><td>" + output[i].out + "</td></tr>";
+		// 			// console.log(markup);
+		// 			//$("#team_stats > tbody").append(markup);
+		// 			$('#live_agents > tbody:last-child').append(markup);
+		// 		}
+		// 		// setTimeout(get_team_stats, 10000);  //every 10 seconds
+		// 	}
+		// });
 });
 
 

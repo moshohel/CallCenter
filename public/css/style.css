@@ -1,0 +1,48 @@
+/* login page animation */
+
+.intro {
+    background: rgb(0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    /* background: rgb(97, 105, 109); */
+    background: rgb(18, 50, 68);
+    /* background: rgb(48, 67, 77); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+}
+
+.intro-text {
+    color: rgb(233, 233, 233);
+    /* font-family: "Heebo", sans-serif; */
+    font-family: "Lobster", cursive !important;
+    /* font-size: 2rem !important; */
+}
+
+.h-front {
+    font-size: 6em !important;
+    /* font-weight: bold !important; */
+    color: white;
+}
+
+.hide {
+    /* background: black; */
+    overflow: hidden;
+}
+
+.hide span {
+    transform: translateY(100%);
+    display: inline-block;
+}

@@ -2,7 +2,15 @@
 
 @push('css')
       <!-- data tables css -->
+      <!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
+rel="stylesheet" />
+<link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href={{ asset("assets/css/plugins/dataTables.bootstrap4.min.css")}}>
+    <link rel="stylesheet" href={{ asset("css/style.css")}}>
 @endpush
 
 @section('content')
@@ -35,7 +43,7 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h4 class="text-c-green" id="total_calls">0</h4>
+                                    <h2 id="total_calls">0</h2>
                                     <h6 class="text-muted m-b-0">Total</h6>
                                 </div>
                                 <div class="col-4 text-end">
@@ -46,7 +54,7 @@
                         <div class="card-footer bg-c-green">
                             <div class="row align-items-center">
                                 <div class="col-9">
-                                    <p class="text-white m-b-0">Calls</p>
+                                    <p class="text-white m-b-0">Call</p>
                                 </div>
                                 <div class="col-3 text-end">
                                     <i class="feather icon-trending-up text-white f-16"></i>
@@ -60,7 +68,7 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h4 class="text-c-blue" id="total_inbound_calls">0</h4>
+                                    <h2 id="total_inbound_calls">0</h2>
                                     <h6 class="text-muted m-b-0">Total Inbound</h6>
                                 </div>
                                 <div class="col-4 text-end">
@@ -71,7 +79,7 @@
                         <div class="card-footer bg-c-blue">
                             <div class="row align-items-center">
                                 <div class="col-9">
-                                    <p class="text-white m-b-0">Calls</p>
+                                    <p class="text-white m-b-0">Call</p>
                                 </div>
                                 <div class="col-3 text-end">
                                     <i class="feather icon-trending-down text-white f-16"></i>
@@ -91,7 +99,7 @@
                           <div class="card-body">
                               <div class="row align-items-center">
                                   <div class="col-8">
-                                      <h4 class="text-c-yellow" id="total_outbound_calls">0</h4>
+                                      <h2 id="total_outbound_calls">0</h2>
                                       <h6 class="text-muted m-b-0">Tatal Outbound</h6>
                                   </div>
                                   <div class="col-4 text-end">
@@ -99,10 +107,10 @@
                                   </div>
                               </div>
                           </div>
-                          <div class="card-footer bg-c-yellow">
+                          <div class="card-footer bg-secondary">
                               <div class="row align-items-center">
                                   <div class="col-9">
-                                      <p class="text-white m-b-0">Calls</p>
+                                      <p class="text-white m-b-0">Call</p>
                                   </div>
                                   <div class="col-3 text-end">
                                       <i class="feather icon-trending-up text-white f-16"></i>
@@ -117,19 +125,19 @@
                           <div class="card-body">
                               <div class="row align-items-center">
                                   <div class="col-8">
-                                      <h4 class="text-c-red" id="total_failed_calls">0</h4>
+                                      <h2 id="total_failed_calls">0</h2>
                                       <h6 class="text-muted m-b-0">Total Failed</h6>
                                   </div>
                                   <div class="col-4 text-end">
                                       {{-- <i class="feather icon-calendar f-28"></i> --}}
-                                      <i class="feather icon-thumbs-down f-28"></i>
+                                      {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
                                   </div>
                               </div>
                           </div>
-                          <div class="card-footer bg-c-red">
+                          <div class="card-footer bg-danger">
                               <div class="row align-items-center">
                                   <div class="col-9">
-                                      <p class="text-white m-b-0">Calls</p>
+                                      <p class="text-white m-b-0">Call</p>
                                   </div>
                                   <div class="col-3 text-end">
                                       <i class="feather icon-trending-down text-white f-16"></i>
@@ -365,10 +373,31 @@
 </div>
 <!-- Button trigger modal -->
 
+{{-- animition --}}
+<div class="intro">
+    <div class="intro-text">
+      <h1 class="hide h-front">
+        
+        <span class="text">MetroNet</span>
+      </h1>
+      <h1 class="hide h-front">
+        
+        <span class="text">Bangladesh</span>
+      </h1>
+      <h1 class="hide h-front">
+        
+        <span class="text">Limited</span>
+      </h1>
+    </div>
+  </div>
+  <div class="slider"></div>
+
 @endsection
 
 
 @section('scripts')
+
+
 
 <!-- chartjs js -->
 {{-- <script src={{asset("assets/js/plugins/Chart.min.js")}}></script> --}}
@@ -381,12 +410,15 @@
 
 <script type="text/javascript" src="{{ asset('assets/js/plugins/Chart2019.min.js') }}"></script>
 
-
 <!-- datatable Js -->
 <script src={{ asset("assets/js/plugins/jquery.dataTables.min.js")}}></script>
 <script src={{ asset("assets/js/plugins/dataTables.bootstrap4.min.js")}}></script>
 {{-- <script src={{ asset("assets/js/pages/data-advance-custom.js")}}></script> --}}
 <script src={{ asset("assets/js/pages/data-basic-custom.js") }}></script>
+
+<script src={{asset("assets/js/gsap.min.js")}}></script>
+{{-- custom js --}}
+<script src={{asset("js/login_style.js")}}></script>
 
 <script>
 
