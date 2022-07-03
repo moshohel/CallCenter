@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/live', [AdminController::class, 'live'])->name('live');
     Route::get('/callReport', [AdminController::class, 'callReport'])->name('report.call');
+    Route::get('/apiCallReport', [AdminController::class, 'apiCallReport']);
 
 
 

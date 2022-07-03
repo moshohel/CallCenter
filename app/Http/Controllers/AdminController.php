@@ -90,6 +90,32 @@ class AdminController extends Controller
         return view('pages.reports.callReport');
     }
 
+    public function apiCallReport()
+    {
+        $fields = array(); //'call_type'=>'isd');
+        //$url="localhost:5151/callmonitor_new_api/index.php";
+        $url = "http://172.16.252.7/cc_api/get_call_report.php";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HEADER, false); //or you will get header response along with json response
+        /*curl_setopt( $ch,CURLOPT_HTTPHEADER, array(
+                                                'Authorization:'. sha1('ssltonic654')
+                                                ,'Content-Type: application/json'
+                                                )
+                    );*/
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        //curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Request Error:' . curl_error($ch);
+        }
+        curl_close($ch);
+        print_r($result);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

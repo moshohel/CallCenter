@@ -33,241 +33,232 @@ rel="stylesheet" />
       </div>
       <!-- [ breadcrumb ] end -->
       <!-- [ Main Content ] start -->
-      <div class="row">
-          <div class="col-lg-6 col-md-12">
-
-              <div class="row">
-
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-8">
-                                    <h2 id="total_calls">0</h2>
-                                    <h6 class="text-muted m-b-0">Total</h6>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h2 id="total_calls">0</h2>
+                                        <h6 class="text-muted m-b-0">Total</h6>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        {{-- <i class="feather icon-file-text f-28"></i> --}}
+                                    </div>
                                 </div>
-                                <div class="col-4 text-end">
-                                    {{-- <i class="feather icon-file-text f-28"></i> --}}
+                            </div>
+                            <div class="card-footer bg-c-green">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0">Call</p>
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <i class="feather icon-trending-up text-white f-16"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer bg-c-green">
-                            <div class="row align-items-center">
-                                <div class="col-9">
-                                    <p class="text-white m-b-0">Call</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h2 id="total_inbound_calls">0</h2>
+                                        <h6 class="text-muted m-b-0">Total Inbound</h6>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
+                                    </div>
                                 </div>
-                                <div class="col-3 text-end">
-                                    <i class="feather icon-trending-up text-white f-16"></i>
+                            </div>
+                            <div class="card-footer bg-c-blue">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0">Call</p>
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <i class="feather icon-trending-down text-white f-16"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-8">
-                                    <h2 id="total_inbound_calls">0</h2>
-                                    <h6 class="text-muted m-b-0">Total Inbound</h6>
-                                </div>
-                                <div class="col-4 text-end">
-                                    {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <!-- page statustic card start -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h2 id="total_outbound_calls">0</h2>
+                                        <h6 class="text-muted m-b-0">Tatal Outbound</h6>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer bg-c-blue">
-                            <div class="row align-items-center">
-                                <div class="col-9">
-                                    <p class="text-white m-b-0">Call</p>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <i class="feather icon-trending-down text-white f-16"></i>
+                            <div class="card-footer bg-secondary">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0">Call</p>
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <i class="feather icon-trending-up text-white f-16"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h2 id="total_failed_calls">0</h2>
+                                        <h6 class="text-muted m-b-0">Total Failed</h6>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        {{-- <i class="feather icon-calendar f-28"></i> --}}
+                                        {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-danger">
+                                <div class="row align-items-center">
+                                    <div class="col-9">
+                                        <p class="text-white m-b-0">Call</p>
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <i class="feather icon-trending-down text-white f-16"></i>
+                                        {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+                <!-- page statustic card end -->
+            </div>
 
-              </div>
-          </div>
-          <div class="col-lg-6 col-md-12">
-              <!-- page statustic card start -->
-              <div class="row">
-                  <div class="col-sm-6">
-                      <div class="card">
-                          <div class="card-body">
-                              <div class="row align-items-center">
-                                  <div class="col-8">
-                                      <h2 id="total_outbound_calls">0</h2>
-                                      <h6 class="text-muted m-b-0">Tatal Outbound</h6>
-                                  </div>
-                                  <div class="col-4 text-end">
-                                      {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="card-footer bg-secondary">
-                              <div class="row align-items-center">
-                                  <div class="col-9">
-                                      <p class="text-white m-b-0">Call</p>
-                                  </div>
-                                  <div class="col-3 text-end">
-                                      <i class="feather icon-trending-up text-white f-16"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-sm-6">
-                      <div class="card">
-                          <div class="card-body">
-                              <div class="row align-items-center">
-                                  <div class="col-8">
-                                      <h2 id="total_failed_calls">0</h2>
-                                      <h6 class="text-muted m-b-0">Total Failed</h6>
-                                  </div>
-                                  <div class="col-4 text-end">
-                                      {{-- <i class="feather icon-calendar f-28"></i> --}}
-                                      {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="card-footer bg-danger">
-                              <div class="row align-items-center">
-                                  <div class="col-9">
-                                      <p class="text-white m-b-0">Call</p>
-                                  </div>
-                                  <div class="col-3 text-end">
-                                      <i class="feather icon-trending-down text-white f-16"></i>
-                                      {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-              </div>
-              <!-- page statustic card end -->
-          </div>
-
-
-        <!-- [ vertically-modal ] start -->		
-					
-        <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
-                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button> --}}
-                    </div>
-                    {{-- <h6 style="text-align: center">Loading...</h6> --}}
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-center">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <div class="spinner-border text-secondary" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <div class="spinner-border text-success" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <div class="spinner-border text-danger" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <div class="spinner-border text-warning" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <div class="spinner-border text-info" role="status">
-                                <span class="sr-only">Loading...</span>
+        <!-- [ vertically-modal ] start -->							
+            <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
+                            {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button> --}}
+                        </div>
+                        {{-- <h6 style="text-align: center">Loading...</h6> --}}
+                        <div class="modal-body">
+                            <div class="d-flex justify-content-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-secondary" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-success" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-danger" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-warning" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-info" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                
+                                <div class="spinner-border text-dark" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <div class="spinner-border text-light" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
                             </div>
                             
-                            <div class="spinner-border text-dark" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <div class="spinner-border text-light" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
                         </div>
-                        
-                    </div>
-                    <div class="modal-footer">
-                        
+                        <div class="modal-footer">
+                            
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-                    
+            </div>                    
         <!-- [ vertically-modal ] end -->
 
-
           <!-- Charts start -->
-
-          <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <div class="card">
-                    {{-- <div class="card-body" style="height: 400px;">
-                        <canvas id="inboundChart"></canvas>
-                    </div> --}}
-                    <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                        <canvas id="inboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        {{-- <div class="card-body" style="height: 400px;">
+                            <canvas id="inboundChart"></canvas>
+                        </div> --}}
+                        <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                            <canvas id="inboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                {{-- <img src="assets/images/pages/festival.svg" alt="image" class="img-fluid wid-100 mb-2"> --}}
+                                <h5>Total Inbound Call Status <br><span class="badge badge-danger">Festival</span></h5>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <div class="text-center">
-                            {{-- <img src="assets/images/pages/festival.svg" alt="image" class="img-fluid wid-100 mb-2"> --}}
-                            <h5>Total Inbound Call Status <br><span class="badge badge-danger">Festival</span></h5>
+
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                            <canvas id="outboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center">
+
+                                <h5>Total Outbound Call Status<br><span class="badge badge-danger">Festival</span></h5>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
+                {{-- <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                            <canvas id="outboundChart_test" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center">
 
-            <div class="col-lg-6 col-md-12">
-                <div class="card">
-                    <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                        <canvas id="outboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-center">
-
-                            <h5>Total Outbound Call Status<br><span class="badge badge-danger">Festival</span></h5>
+                                <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
-
-            {{-- <div class="col-lg-6 col-md-12">
-                <div class="card">
-                    <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                        <canvas id="outboundChart_test" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
-                    </div>
-                    <div class="card-body">
-                        <div class="text-center">
-
-                            <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
+                <div class="col-lg-6 col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Bar chart horizontal</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="bar-chart-3"></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Bar chart horizontal</h5>
-                    </div>
-                    <div class="card-body">
-                        <div id="bar-chart-3"></div>
-                    </div>
-                </div>
-            </div> --}}
-
-        </div>
 
         {{-- <div class="row">
 
@@ -325,72 +316,54 @@ rel="stylesheet" />
         </div> --}}
         <!--End Charts start -->
 
-        <div class="row">
-            <!-- Agent Summery table data-basic-custom start -->
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Agent Summary</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="dt-responsive table-responsive">
-                            <table id="agent_summary_table" class="table table-striped table-bordered nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Agent Name</th>
-                                        <th>Login Time</th>
-                                        <th>Last LogOut</th>
-                                        <th>Working Hours</th>
-                                        <th>Incoming Calls</th>
-                                        <th>Outgoing Calls</th>
-                                        {{-- <th>Pause Time</th> --}}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        {{-- <td>test</td> --}}
-                                    </tr>
+            <div class="row">
+                <!-- Agent Summery table data-basic-custom start -->
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Agent Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="dt-responsive table-responsive">
+                                <table id="agent_summary_table" class="table table-striped table-bordered nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Agent Name</th>
+                                            <th>Login Time</th>
+                                            <th>Last LogOut</th>
+                                            <th>Working Hours</th>
+                                            <th>Incoming Calls</th>
+                                            <th>Outgoing Calls</th>
+                                            {{-- <th>Pause Time</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            {{-- <td>test</td> --}}
+                                        </tr>
 
-                                </tbody>
+                                    </tbody>
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- Agent Summery table end -->
             </div>
-            <!-- Agent Summery table end -->
-        </div>
 
-      </div>
+        </div>
       <!-- [ Main Content ] end -->
   </div>
 </div>
 <!-- Button trigger modal -->
 
-{{-- animition --}}
-<div class="intro">
-    <div class="intro-text">
-      <h1 class="hide h-front">
-        
-        <span class="text">MetroNet</span>
-      </h1>
-      <h1 class="hide h-front">
-        
-        <span class="text">Bangladesh</span>
-      </h1>
-      <h1 class="hide h-front">
-        
-        <span class="text">Limited</span>
-      </h1>
-    </div>
-  </div>
-  <div class="slider"></div>
 
 @endsection
 

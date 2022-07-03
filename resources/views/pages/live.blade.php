@@ -83,7 +83,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-c-red">
+                    <div class="card-footer bg-info">
                         <div class="row align-items-center">
                             <div class="col-9">
                                 <p class="text-white m-b-0">Call</p>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-c-green">
+                    <div class="card-footer bg-secondary">
                         <div class="row align-items-center">
                             <div class="col-9">
                                 <p class="text-white m-b-0"> Agent</p>
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer bg-c-yellow">
+                    <div class="card-footer bg-danger">
                         <div class="row align-items-center">
                             <div class="col-9">
                                 <p class="text-white m-b-0"> Agent</p>
