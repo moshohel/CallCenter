@@ -1,6 +1,6 @@
 /* login page animation */
 
-.intro {
+/* .intro {
     background: rgb(0, 0, 0);
     position: fixed;
     top: 0;
@@ -13,9 +13,7 @@
 }
 
 .slider {
-    /* background: rgb(97, 105, 109); */
     background: rgb(18, 50, 68);
-    /* background: rgb(48, 67, 77); */
     position: fixed;
     top: 0;
     left: 0;
@@ -26,23 +24,64 @@
 
 .intro-text {
     color: rgb(233, 233, 233);
-    /* font-family: "Heebo", sans-serif; */
+    font-family: "Heebo", sans-serif;
     font-family: "Lobster", cursive !important;
-    /* font-size: 2rem !important; */
+    font-size: 2rem !important;
 }
 
 .h-front {
     font-size: 6em !important;
-    /* font-weight: bold !important; */
+    
     color: white;
 }
 
 .hide {
-    /* background: black; */
+    
     overflow: hidden;
 }
 
 .hide span {
     transform: translateY(100%);
     display: inline-block;
+} */
+
+.avg-call-box {
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.avg-call-box li {
+    list-style: none;
+    text-align: center;
+    border-style: solid;
+    border-color: rgb(244 247 252);
+    border-width: 0 0 2px 0px;
+}
+
+.avg-call-box li .call-box {
+    margin: 32px 0px;
+    padding: 0px 30px;
+    border-style: solid;
+    border-color: rgb(244 247 252);
+    border-width: 0 0 0px 2px;
+}
+
+.avg-call-box li:first-child .call-box {
+    border-left-width: 0;
+}
+
+.avg-call-box li:nth-child(3) .call-box {
+    border-left-width: 0;
+}
+
+.avg-call-box li:nth-child(3),
+.avg-call-box li:nth-child(4) {
+    border-bottom-width: 0;
+}
+
+.avg-call-box li h4 {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 32px;
 }

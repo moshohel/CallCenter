@@ -254,16 +254,16 @@
         <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content ">
+                <div class="modal-content">
                     <div>
                         <h5 class="modal-title m-4 text-primary" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
                         {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button> --}}
                     </div>
                     {{-- <h6 style="text-align: center">Loading...</h6> --}}
-                    <div class="modal-body m-5">
+                    <div class="modal-body m-5" style="height: 30%; height: 50%;">
                         <div class="d-flex justify-content-center">
-                            <img style="width: 30%; height: 30%;" src={{ asset('assets/images/loading3.gif') }} alt="">
+                            <img style="width: 20%; height: 20%;" src={{ asset('assets/images/loading3.gif') }} alt="">
                             {{-- <div class="spinner-border text-primary" role="status">
                                 <span class="sr-only">Loading...</span>
                             </div>

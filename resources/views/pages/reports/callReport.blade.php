@@ -33,8 +33,8 @@
                         <table id="call_report_table" class="table table-striped table-bordered nowrap">
                             <thead>
                                 <tr>
-                                    <th>Call Type</th>
                                     <th>Call Date</th>
+                                    <th>Call Type</th>
                                     <th>Customer Number</th>
                                     <th>DID</th>
                                     <th>Call Status</th>
@@ -94,7 +94,9 @@
 <script>
 $(document).ready(function () {
     setTimeout(function () {
-        $('#call_report_table').DataTable()
+        $('#call_report_table').DataTable({
+      order: [[0, 'desc']],
+    })
     }, 350)
 })
 </script>
@@ -134,7 +136,7 @@ $(document).ready(function () {
                         audio_control="<audio controls autoplay muted> <source src='http://172.16.252.7/metro_recording/"+output[i].record+"' type='audio/wav'> Your browser does not support the audio element. </audio>";
                     }
 
-					var markup = "<tr><td>"+output[i].call_type+"</td><td>" + output[i].calldate + 
+					var markup = "<tr><td>"+output[i].calldate+"</td><td>" + output[i].call_type + 
                         "</td><td>" + output[i].customer_no  + "</td><td>" + output[i].did + 
                             "</td><td>" + output[i].call_status + "</td><td>" + output[i].campaign + 
                                 "</td><td>"+output[i].ingroup+"</td><td>" + output[i].agent_name + 

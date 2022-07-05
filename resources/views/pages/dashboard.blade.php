@@ -1,38 +1,39 @@
 @extends('layouts.layout')
 
 @push('css')
-      <!-- data tables css -->
-      <!-- GOOGLE FONTS -->
+<!-- data tables css -->
+<!-- GOOGLE FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
-rel="stylesheet" />
-<link
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&family=Lobster&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href={{ asset("assets/css/plugins/dataTables.bootstrap4.min.css")}}>
-    <link rel="stylesheet" href={{ asset("css/style.css")}}>
+    rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&family=Lobster&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href={{ asset("assets/css/plugins/dataTables.bootstrap4.min.css")}}>
+<link rel="" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+<link rel="stylesheet" href={{ asset("css/style.css")}}>
 @endpush
 
 @section('content')
 
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
-  <div class="pcoded-content">
-      <!-- [ breadcrumb ] start -->
-      <div class="page-header">
-          <div class="page-block">
-              <div class="row align-items-center">
-                  <div class="col-md-12">
-                      <div class="page-header-title">
-                        <a href="{{ route('dashboard') }}"><h5 class="m-b-10">Dashboard</h5></a>
-                      </div>
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <a href="{{ route('dashboard') }}">
+                                <h5 class="m-b-10">Dashboard</h5>
+                            </a>
+                        </div>
 
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- [ breadcrumb ] end -->
-      <!-- [ Main Content ] start -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="row">
@@ -149,68 +150,33 @@ rel="stylesheet" />
                 <!-- page statustic card end -->
             </div>
 
-        <!-- [ vertically-modal ] start -->							
-            <div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align: center">Loading ..</h5>
-                            {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button> --}}
-                        </div>
-                        {{-- <h6 style="text-align: center">Loading...</h6> --}}
-                        <div class="modal-body">
-                            <div class="d-flex justify-content-center">
-                                <div class="spinner-border text-primary" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                                <div class="spinner-border text-secondary" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                                <div class="spinner-border text-success" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                                <div class="spinner-border text-danger" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                                <div class="spinner-border text-warning" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                                <div class="spinner-border text-info" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                                
-                                <div class="spinner-border text-dark" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                                <div class="spinner-border text-light" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>                    
-        <!-- [ vertically-modal ] end -->
 
-          <!-- Charts start -->
+            <!-- Charts start -->
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="card">
                         {{-- <div class="card-body" style="height: 400px;">
                             <canvas id="inboundChart"></canvas>
                         </div> --}}
-                        <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                            <canvas id="inboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor"
+                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                <div class="chartjs-size-monitor-expand"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                </div>
+                            </div>
+                            <canvas id="inboundChart" style="display: block; height: 340px; width: 494px;"
+                                class="chartjs-render-monitor"></canvas>
                         </div>
                         <div class="card-body">
                             <div class="text-center">
-                                {{-- <img src="assets/images/pages/festival.svg" alt="image" class="img-fluid wid-100 mb-2"> --}}
+                                {{-- <img src="assets/images/pages/festival.svg" alt="image"
+                                    class="img-fluid wid-100 mb-2"> --}}
                                 <h5>Total Inbound Call Status <br><span class="badge badge-danger">Festival</span></h5>
                             </div>
                         </div>
@@ -220,8 +186,20 @@ rel="stylesheet" />
 
                 <div class="col-lg-6 col-md-12">
                     <div class="card">
-                        <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                            <canvas id="outboundChart" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor"
+                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                <div class="chartjs-size-monitor-expand"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                </div>
+                            </div>
+                            <canvas id="outboundChart" style="display: block; height: 340px; width: 494px;"
+                                class="chartjs-render-monitor"></canvas>
                         </div>
                         <div class="card-body">
                             <div class="text-center">
@@ -234,8 +212,20 @@ rel="stylesheet" />
 
                 {{-- <div class="col-lg-6 col-md-12">
                     <div class="card">
-                        <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                            <canvas id="outboundChart_test" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor"
+                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                <div class="chartjs-size-monitor-expand"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                </div>
+                            </div>
+                            <canvas id="outboundChart_test" style="display: block; height: 340px; width: 494px;"
+                                class="chartjs-render-monitor"></canvas>
                         </div>
                         <div class="card-body">
                             <div class="text-center">
@@ -260,61 +250,152 @@ rel="stylesheet" />
 
             </div>
 
-        {{-- <div class="row">
+            {{-- <div class="row">
 
-            <div class="col-xl-6 col-md-12">
-                <div class="card card-no-hover m-b-30">
-                  <div class="card-header">
-                      <div class="card-title">Campaign Stats</div>
-                  </div>
-                  <div class="card-body">
-                      <div class="chart">
-                          <div id="apexchart-006" class="chart-canvas"></div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xl-6 col-md-12">
-                <div class="card card-no-hover m-b-30">
-                  <div class="card-header">
-                      <div class="card-title">Call Stats</div>
-                  </div>
-                  <div class="card-body">
-                      <div class="chart">
-                          <div id="call_stats" class="chart-canvas"></div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-
-
-        </div> --}}
-
-        {{-- <div class="row">
-            <div class="col-xl-6 col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Bar [ Horizontal ] Chart</h5>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="deviceChart2" style="width: 100%; height: 300px"></canvas>
+                <div class="col-xl-6 col-md-12">
+                    <div class="card card-no-hover m-b-30">
+                        <div class="card-header">
+                            <div class="card-title">Campaign Stats</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="apexchart-006" class="chart-canvas"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-12 col-lg-6">
-                <div class="card card-default" id="activity-user">
-                  <div class="card-header justify-content-center">
-                    <h2>Demographic – Age Group</h2>
-                  </div>
-                  <div class="card-body" ><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                      <canvas id="currentUser" width="988" height="680" style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
-                  </div>
+                <div class="col-xl-6 col-md-12">
+                    <div class="card card-no-hover m-b-30">
+                        <div class="card-header">
+                            <div class="card-title">Call Stats</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="call_stats" class="chart-canvas"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
+            </div> --}}
+
+            {{-- <div class="row">
+                <div class="col-xl-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Bar [ Horizontal ] Chart</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="deviceChart2" style="width: 100%; height: 300px"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card card-default" id="activity-user">
+                        <div class="card-header justify-content-center">
+                            <h2>Demographic – Age Group</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor"
+                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                <div class="chartjs-size-monitor-expand"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink"
+                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                </div>
+                            </div>
+                            <canvas id="currentUser" width="988" height="680"
+                                style="display: block; height: 340px; width: 494px;"
+                                class="chartjs-render-monitor"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+            <!--End Charts start -->
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card card-no-hover m-b-30">
+                        <div class="card-header">
+                            <div class="card-title">System Informations</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart">
+                                <div id="apexchart-006" class="chart-canvas"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6  d-flex">
+                    <div class="card card-no-hover m-b-30">
+                        <div class="card-header">
+                            {{-- <div class="card-title">Call Stats</div> --}}
+                            <h5>Call Status</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="avg-call-box row">
+                                <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            {{-- <i class="fas fa-plus"></i> --}}
+                                        </div>
+                                        <div class="call_text">
+                                            <h4 class="text-primary" id="avg_incoming_call">00:00:00</h4>
+                                            <h5>Avg Incoming Call Duration</h5>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            {{-- <i class="icon icon-earth"></i> --}}
+                                            {{-- <i class="fas fa-globe"></i> --}}
+                                        </div>
+                                        <div class="call_text">
+                                            <h4 class="text-danger" id="avg_queue_time">00:00:00</h4>
+                                            <h5>Avg Queue Time</h5>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            {{-- <i class="fas fa-phone"></i> --}}
+                                        </div>
+                                        <div class="call_text">
+                                            <h4 class="text-info" id="avg_outgoing_call">00:00:00</h4>
+                                            <h5>Avg Outgoing Call Duration</h5>
+                                        </div>
+                                    </div>
+                                </li>
+                                {{-- <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            <i class="fas fa-hourglass-half"></i>
+                                        </div>
+                                        <div class="call_text">
+                                            <h4 class="text-success">12:01:04</h4>
+                                            <h5>Avg Time Duration per Agent</h5>
+                                        </div>
+                                    </div>
+                                </li> --}}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
-        </div> --}}
-        <!--End Charts start -->
 
             <div class="row">
                 <!-- Agent Summery table data-basic-custom start -->
@@ -359,8 +440,8 @@ rel="stylesheet" />
             </div>
 
         </div>
-      <!-- [ Main Content ] end -->
-  </div>
+        <!-- [ Main Content ] end -->
+    </div>
 </div>
 <!-- Button trigger modal -->
 
@@ -394,7 +475,6 @@ rel="stylesheet" />
 <script src={{asset("js/login_style.js")}}></script>
 
 <script>
-
     // Chart.defaults.color = "#ff0000";
     function inboundStatusChartFun(response)
     {
@@ -509,7 +589,6 @@ rel="stylesheet" />
 </script>
 
 <script>
-
     function outboundStatusChartFun(response)
 
     {
@@ -637,6 +716,9 @@ rel="stylesheet" />
                 $('#total_inbound_calls').html(response.c_in);
                 $('#total_outbound_calls').html(response.c_out);
                 $('#total_failed_calls').html(response.c_failed_out);
+                $('#avg_incoming_call').html(response.avg_talk_in);
+                $('#avg_outgoing_call').html(response.avg_talk_out);
+                $('#avg_queue_time').html(response.avg_queue_time)
                 //live_calls.innerText = response.live_calls_dataset.length;
                 // $('#live_calls').html(response.live_calls_dataset.length);
 

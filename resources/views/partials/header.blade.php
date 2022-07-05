@@ -6,8 +6,8 @@
     <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
     <a href="#!" class="b-brand">
       <!-- ========   change your logo hear   ============ -->
-      {{-- <img src="assets/images/logo.png" alt="" class="logo"> --}}
-      <h5 style="color: aliceblue">Call Center</h5>
+      <img style="width: 95%" src="{{ asset('assets/images/cc_logo2.png') }}" alt=""  class="logo">
+      {{-- <h5 style="color: aliceblue">Call Center</h5> --}}
       
     </a>
     <a href="#!" class="mob-toggler">
