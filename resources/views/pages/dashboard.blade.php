@@ -323,12 +323,65 @@
                 <div class="col-lg-6">
                     <div class="card card-no-hover m-b-30">
                         <div class="card-header">
-                            <div class="card-title">System Informations</div>
+                            {{-- <div class="card-title">System Informations</div> --}}
+                            <h5>System Informations</h5>
                         </div>
                         <div class="card-body">
-                            <div class="chart">
-                                <div id="apexchart-006" class="chart-canvas"></div>
-                            </div>
+                            <ul class="avg-call-box row">
+                                <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            {{-- <i class="fas fa-plus"></i> --}}
+                                        </div>
+                                        <div class="call_text">
+                                            <h6 class="text-primary"><span id="up_time"> days</span> </h6>
+                                            <h5>Up Time</h5>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            {{-- <i class="icon icon-earth"></i> --}}
+                                            {{-- <i class="fas fa-globe"></i> --}}
+                                        </div>
+                                        <div class="call_text">
+                                            <h6 class="text-danger">CPU Used : <span id="cpu_use_percentage"></span>
+                                            </h6>
+                                            <h5>CPU Status</h5>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            {{-- <i class="fas fa-phone"></i> --}}
+                                        </div>
+                                        <div class="call_text">
+                                            <h6 class="text-info">Total RAM : <span id="mem_total"></span></h6>
+                                            <h6 class="text-primary">Used RAM : <span id="mem_used"></span></h6>
+                                            <h6 class="text-success">Free RAM : <span id="mem_free"></span></h6>
+                                            <h5>Memory or RAM Status</h5>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="call-box">
+                                        <div class="call-icon">
+                                            {{-- <i class="fas fa-hourglass-half"></i> --}}
+                                        </div>
+                                        <div class="call_text">
+                                            <h6 class="text-info">Total HDD : <span id="hdd_total"></span></h6>
+                                            <h6 class="text-primary">Used HDD : <span id="hdd_used"></span></h6>
+                                            <h6 class="text-success">Free HDD : <span id="hdd_free"></span></h6>
+                                            <h5>HDD Status</h5>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -707,7 +760,7 @@
 		})
 		.done(function( response ) {
             // $('#exampleModalCenter').modal('toggle');
-			console.log(response);
+			// console.log(response);
             if(response.success=='y'){
 				//$("#team_stats").empty();
                 inboundStatusChartFun(response);
@@ -734,6 +787,33 @@
 				}
 				// setTimeout(get_team_stats, 10000);  //every 10 seconds
 			}
+		});
+
+        $.ajax({
+			async: true,
+			data:{_token: CSRF_TOKEN},	//data : 'package='+1+'&day='+dayValue,
+			type: 'get', //  or POST $(this).attr('method')
+			url:  '{{ env('System_Info') }}',// the file to call //$(this).attr('action')
+			dataType : 'text',
+			beforeSend: function(  ) {
+				// $('#exampleModalCenter').modal('toggle');
+			}
+		})
+		.done(function( response ) {
+            // $('#exampleModalCenter').modal('toggle');
+            const result = JSON.parse(response)
+			console.log(result);
+            $('#cpu_use_percentage').html(result.cpu_use_percentage + " %");
+            $('#hdd_total').html(result.hdd_total);
+            $('#hdd_free').html(result.hdd_free);
+            $('#hdd_used').html(result.hdd_used);
+            $('#mem_total').html(result.mem_total);
+            $('#mem_used').html(result.mem_used);
+            $('#mem_free').html(result.mem_free);
+            // $('#up_time').append(result.up_time)
+            $("<span>" + result.up_time + "</span>").insertBefore("#up_time")
+			console.log('-----test--------');
+
 		});
     });
 

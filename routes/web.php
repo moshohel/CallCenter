@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
+    Route::get('/systemInfo', [AdminController::class, 'systemInfo']);
     Route::post('/apiLiveDashboard', [AdminController::class, 'apiLiveDashboard'])->name('apiLiveDashboard');
     Route::post('/apiLive', [AdminController::class, 'apiLive'])->name('apiLive');
 });
@@ -64,7 +65,7 @@ Route::get('/info', function () {
     $upTime = shell_exec("uptime");
     $upTimeArr = explode(' ', trim($upTime));
     $stat['up_time'] = $upTimeArr[2] . ' days';
-    $stat['cup_use_percentage'] = $cpuUses . ' %';
+    $stat['cpu_use_percentage'] = $cpuUses . ' %';
     // print_r($upTime);
     // echo "<br>";
     // print_r('Server Up time : ' . $upTimeArr[2] . ' ' . $upTimeArr[3]);
@@ -90,7 +91,7 @@ Route::get('/info', function () {
     //output data by json
     echo
     "{  \"up_time\": " . $stat['up_time'] . ",
-        \"cup_use_percentage\": " . $stat['cup_use_percentage'] . ",
+        \"cpu_use_percentage\": " . $stat['cpu_use_percentage'] . ",
         \"mem_percent\": " . $stat['mem_percent'] . ", \"mem_total\":" . $stat['mem_total'] . ", \"mem_used\":" . $stat['mem_used'] . ", \"mem_free\":" . $stat['mem_free'] . //mem stats
         ", \"hdd_free\":" . $stat['hdd_free'] . ", \"hdd_total\":" . $stat['hdd_total'] . ", \"hdd_used\":" . $stat['hdd_used'] . ", \"hdd_percent\":" . $stat['hdd_percent'] . ", " . //hdd stats
 
