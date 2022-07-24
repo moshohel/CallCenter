@@ -1,9 +1,8 @@
-
 <!-- [ navigation menu ] start -->
 <nav class="pcoded-navbar menu-light ">
   <div class="navbar-wrapper  ">
-    <div class="navbar-content scroll-div " >
-      
+    <div class="navbar-content scroll-div ">
+
       <div class="">
         <div class="main-menu-header">
           {{-- <img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="User-Profile-Image"> --}}
@@ -13,21 +12,27 @@
         </div>
         <div class="collapse" id="nav-user-link">
           <ul class="list-inline">
-            <li class="list-inline-item"><a href="user-profile.html" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
-            <li class="list-inline-item"><a href="email_inbox.html"><i class="feather icon-mail" data-toggle="tooltip" title="Messages"></i><small class="badge badge-pill badge-primary">5</small></a></li>
-            <li class="list-inline-item"><a href="auth-signin.html" data-toggle="tooltip" title="Logout" class="text-danger"><i class="feather icon-power"></i></a></li>
+            <li class="list-inline-item"><a href="user-profile.html" data-toggle="tooltip" title="View Profile"><i
+                  class="feather icon-user"></i></a></li>
+            <li class="list-inline-item"><a href="email_inbox.html"><i class="feather icon-mail" data-toggle="tooltip"
+                  title="Messages"></i><small class="badge badge-pill badge-primary">5</small></a></li>
+            <li class="list-inline-item"><a href="auth-signin.html" data-toggle="tooltip" title="Logout"
+                class="text-danger"><i class="feather icon-power"></i></a></li>
           </ul>
         </div>
       </div>
-      
+
       <ul class="nav pcoded-inner-navbar ">
         <li class="nav-item pcoded-menu-caption">
           <label>Admin Panel</label>
         </li>
-        <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-aperture"></i></span><span class="pcoded-mtext">Dashboard</span></a></li>
-        <li class="nav-item"><a href="{{ route('live') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Live</span></a></li>
+        <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-aperture"></i></span><span class="pcoded-mtext">Dashboard</span></a></li>
+        <li class="nav-item"><a href="{{ route('live') }}" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-activity"></i></span><span class="pcoded-mtext">Live</span></a></li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fas fa-folder-open"></i></span><span class="pcoded-mtext">Reports</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fas fa-folder-open"></i></span><span
+              class="pcoded-mtext">Reports</span></a>
           <ul class="pcoded-submenu">
             <li><a href="{{ route('report.call') }}">Call Report</a></li>
             {{-- <li><a href="dashboard-sale.html">Sales</a></li>
@@ -36,8 +41,17 @@
             <li><a href="dashboard-project.html">Project</a></li> --}}
           </ul>
         </li>
+        <li class="nav-item pcoded-hasmenu">
+          <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span
+              class="pcoded-mtext">Users</span></a>
+          <ul class="pcoded-submenu">
+            <li><a href="{{ route('users') }}">User List</a></li>
+            <li><a href="{{ route('user.create') }}">Create User</a></li>
+          </ul>
+        </li>
         {{-- <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Reports</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span
+              class="pcoded-mtext">Reports</span></a>
           <ul class="pcoded-submenu">
             <li class="pcoded-hasmenu"><a href="#!">Vertical</a>
               <ul class="pcoded-submenu">
@@ -53,11 +67,13 @@
             <li><a href="layout-horizontal-rtl.html" target="_blank">Horizontal RTL</a></li>
             <li><a href="layout-box.html" target="_blank">Box layout</a></li>
             <li><a href="layout-light.html" target="_blank">Navbar dark</a></li>
-            <li><a href="layout-dark.html" target="_blank">Dark layout <span class="pcoded-badge badge badge-danger">Hot</span></a></li>
+            <li><a href="layout-dark.html" target="_blank">Dark layout <span
+                  class="pcoded-badge badge badge-danger">Hot</span></a></li>
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Campaigns</span><span class="pcoded-badge badge badge-success">100+</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span
+              class="pcoded-mtext">Campaigns</span><span class="pcoded-badge badge badge-success">100+</span></a>
           <ul class="pcoded-submenu">
             <li><a href="widget-statistic.html">Statistic</a></li>
             <li><a href="widget-data.html">Data</a></li>
@@ -65,7 +81,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Users</span></a>
+          <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span
+              class="pcoded-mtext">Users</span></a>
           <ul class="pcoded-submenu">
             <li><a href="user-profile.html">Profile</a></li>
             <li><a href="user-card.html">User Card</a></li>
@@ -73,10 +90,12 @@
           </ul>
         </li>
         <li class="nav-item pcoded-menu-caption">
-          <label>Admin Panel <span class="pcoded-badge badge badge-danger">NEW</span><span class="pcoded-badge badge badge-warning">HOT</span></label>
+          <label>Admin Panel <span class="pcoded-badge badge badge-danger">NEW</span><span
+              class="pcoded-badge badge badge-warning">HOT</span></label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Hospital</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span
+              class="pcoded-mtext">Hospital</span></a>
           <ul class="pcoded-submenu">
             <li><a href="hospital-dashboard.html">Dashboard</a></li>
             <li><a href="hospital-department.html">Department</a></li>
@@ -88,7 +107,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-check"></i></span><span class="pcoded-mtext">Membership</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-check"></i></span><span
+              class="pcoded-mtext">Membership</span></a>
           <ul class="pcoded-submenu">
             <li><a href="member-dashboard.html">Dashboard</a></li>
             <li><a href="member-mail-template.html">Email templates</a></li>
@@ -100,7 +120,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-life-buoy"></i></span><span class="pcoded-mtext">Helpdesk</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-life-buoy"></i></span><span
+              class="pcoded-mtext">Helpdesk</span></a>
           <ul class="pcoded-submenu">
             <li><a href="help-dashboard.html">Helpdesk dashboard</a></li>
             <li><a href="help-create-ticket.html">Create ticket</a></li>
@@ -110,7 +131,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">School</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-book"></i></span><span
+              class="pcoded-mtext">School</span></a>
           <ul class="pcoded-submenu">
             <li><a href="school-dashboard.html">Dashboard</a></li>
             <li><a href="school-student.html">Student</a></li>
@@ -119,7 +141,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link" data-toggle="tooltip" title="Student Information System"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">SIS</span></a>
+          <a href="#!" class="nav-link" data-toggle="tooltip" title="Student Information System"><span
+              class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">SIS</span></a>
           <ul class="pcoded-submenu">
             <li><a href="sis-dashboard.html">Dashboard</a></li>
             <li><a href="sis-leave.html">Leave</a></li>
@@ -130,7 +153,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-target"></i></span><span class="pcoded-mtext">Crypto</span></a>
+          <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-target"></i></span><span
+              class="pcoded-mtext">Crypto</span></a>
           <ul class="pcoded-submenu">
             <li><a href="crypto-dashboard.html">Dashboard</a></li>
             <li><a href="crypto-exchange.html">Exchange</a></li>
@@ -143,7 +167,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span><span class="pcoded-mtext">E-Commerce</span></a>
+          <a href="#!" class="nav-link"><span class="pcoded-micon"><i
+                class="feather icon-shopping-cart"></i></span><span class="pcoded-mtext">E-Commerce</span></a>
           <ul class="pcoded-submenu">
             <li><a href="ecom-product.html">Product</a></li>
             <li><a href="ecom-product-details.html">Product details</a></li>
@@ -158,7 +183,8 @@
           <label>UI Element</label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Basic</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span
+              class="pcoded-mtext">Basic</span></a>
           <ul class="pcoded-submenu">
             <li><a href="bc_alert.html">Alert</a></li>
             <li><a href="bc_button.html">Button</a></li>
@@ -182,7 +208,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-gitlab"></i></span><span class="pcoded-mtext">Advance</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-gitlab"></i></span><span
+              class="pcoded-mtext">Advance</span></a>
           <ul class="pcoded-submenu">
             <li><a href="ac_alert.html">Sweet alert</a></li>
             <li><a href="ac-datepicker-componant.html">Datepicker</a></li>
@@ -194,19 +221,23 @@
             <li><a href="ac_syntax_highlighter.html">Syntax highlighter</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-aperture"></i></span><span class="pcoded-mtext">Animations</span></a></li>
+        <li class="nav-item"><a href="animation.html" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-aperture"></i></span><span class="pcoded-mtext">Animations</span></a></li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-feather"></i></span><span class="pcoded-mtext">Icons</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-feather"></i></span><span
+              class="pcoded-mtext">Icons</span></a>
           <ul class="pcoded-submenu">
             <li><a href="icon-feather.html">Feather<span class="pcoded-badge badge badge-danger">NEW</span></a></li>
-            <li><a href="icon-fontawsome.html">Font Awesome 5<span class="pcoded-badge badge badge-primary">1000+</span></a></li>
+            <li><a href="icon-fontawsome.html">Font Awesome 5<span
+                  class="pcoded-badge badge badge-primary">1000+</span></a></li>
           </ul>
         </li>
         <li class="nav-item pcoded-menu-caption">
           <label>Forms</label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Forms</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span
+              class="pcoded-mtext">Forms</span></a>
           <ul class="pcoded-submenu">
             <li><a href="form_elements.html">Form elements</a></li>
             <li><a href="form-elements-advance.html">Form advance</a></li>
@@ -219,9 +250,10 @@
         </li>
         <li class="nav-item pcoded-menu-caption">
           <label>table</label>
-           </li>
+        </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Bootstrap table</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Bootstrap table</span></a>
           <ul class="pcoded-submenu">
             <li><a href="tbl_bootstrap.html">Basic table</a></li>
             <li><a href="tbl_sizing.html">Sizing table</a></li>
@@ -230,7 +262,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Data table</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span
+              class="pcoded-mtext">Data table</span></a>
           <ul class="pcoded-submenu">
             <li><a href="dt_basic.html">Basic initialization</a></li>
             <li><a href="dt_advance.html">Advance initialization</a></li>
@@ -241,7 +274,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">DT extensions</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span
+              class="pcoded-mtext">DT extensions</span></a>
           <ul class="pcoded-submenu">
             <li><a href="dt_ext_autofill.html">Autofill</a></li>
             <li class="nav-item pcoded-hasmenu">
@@ -265,7 +299,8 @@
           <label>Chart & Maps</label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span
+              class="pcoded-mtext">Chart</span></a>
           <ul class="pcoded-submenu">
             <li><a href="chart-apex.html">Apex Chart</a></li>
             <li><a href="chart-chartjs.html">Chart js</a></li>
@@ -275,7 +310,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span
+              class="pcoded-mtext">Maps</span></a>
           <ul class="pcoded-submenu">
             <li><a href="map-google.html">Google</a></li>
             <li><a href="map-api.html">Gmap search API</a></li>
@@ -285,22 +321,28 @@
           <label>Pages</label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span
+              class="pcoded-mtext">Authentication</span></a>
           <ul class="pcoded-submenu">
             <li><a href="auth-signup.html" target="_blank">Sign up</a></li>
-            <li><a href="auth-signup-img-side.html" target="_blank">Sign up v2 <span class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
+            <li><a href="auth-signup-img-side.html" target="_blank">Sign up v2 <span
+                  class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
             <li><a href="auth-signin.html" target="_blank">Sign in</a></li>
-            <li><a href="auth-signin-img-side.html" target="_blank">Sign in v2 <span class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
+            <li><a href="auth-signin-img-side.html" target="_blank">Sign in v2 <span
+                  class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
             <li><a href="auth-reset-password.html" target="_blank">Reset password</a></li>
-            <li><a href="auth-reset-password-img-side.html" target="_blank">Reset password v2 <span class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
+            <li><a href="auth-reset-password-img-side.html" target="_blank">Reset password v2 <span
+                  class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
             <li><a href="auth-change-password.html" target="_blank">Change password</a></li>
-            <li><a href="auth-change-password-img-side.html" target="_blank">Change password v2 <span class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
+            <li><a href="auth-change-password-img-side.html" target="_blank">Change password v2 <span
+                  class="pcoded-badge badge badge-light-danger">NEW</span></a></li>
             <li><a href="auth-profile-settings.html" target="_blank">Profile settings</a></li>
             <li><a href="auth-tabs.html" target="_blank">Tabs Authentication</a></li>
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-sliders"></i></span><span class="pcoded-mtext">Maintenance</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-sliders"></i></span><span
+              class="pcoded-mtext">Maintenance</span></a>
           <ul class="pcoded-submenu">
             <li><a href="maint-error.html">Error</a></li>
             <li><a href="maint-offline-ui.html" target="_blank">Offline UI</a></li>
@@ -311,7 +353,8 @@
           <label>App</label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span class="pcoded-mtext">Email</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-mail"></i></span><span
+              class="pcoded-mtext">Email</span></a>
           <ul class="pcoded-submenu">
             <li><a href="email_inbox.html">Inbox</a></li>
             <li><a href="email_read.html">Read mail</a></li>
@@ -319,7 +362,8 @@
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-clipboard"></i></span><span class="pcoded-mtext">Task</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-clipboard"></i></span><span
+              class="pcoded-mtext">Task</span></a>
           <ul class="pcoded-submenu">
             <li><a href="task-list.html">List</a></li>
             <li><a href="task-board.html">Board</a></li>
@@ -327,10 +371,12 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="todo.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-check-square"></i></span><span class="pcoded-mtext">To-Do</span></a>
+          <a href="todo.html" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-check-square"></i></span><span class="pcoded-mtext">To-Do</span></a>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-image"></i></span><span class="pcoded-mtext">Gallery</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-image"></i></span><span
+              class="pcoded-mtext">Gallery</span></a>
           <ul class="pcoded-submenu">
             <li><a href="gallery-grid.html">Grid</a></li>
             <li><a href="gallery-masonry.html">Masonry</a></li>
@@ -340,28 +386,34 @@
           <label>Extension</label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-plus"></i></span><span class="pcoded-mtext">Editor</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-plus"></i></span><span
+              class="pcoded-mtext">Editor</span></a>
           <ul class="pcoded-submenu">
             <li><a href="editor-classic.html">CK editor</a></li>
             <li><a href="editor-trumbowyg.html">Trumbowyg editor</a></li>
           </ul>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-minus"></i></span><span class="pcoded-mtext">Invoice</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-minus"></i></span><span
+              class="pcoded-mtext">Invoice</span></a>
           <ul class="pcoded-submenu">
             <li><a href="invoice.html">Invoice</a></li>
             <li><a href="invoice-summary.html">Invoice summary</a></li>
             <li><a href="invoice-list.html">Invoice list</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a href="full-calendar.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Full calendar</span></a></li>
-        <li class="nav-item"><a href="file-upload.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-upload-cloud"></i></span><span class="pcoded-mtext">File upload</span></a></li>
-        <li class="nav-item"><a href="image_crop.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-scissors"></i></span><span class="pcoded-mtext">Image cropper</span></a></li>
+        <li class="nav-item"><a href="full-calendar.html" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-calendar"></i></span><span class="pcoded-mtext">Full calendar</span></a></li>
+        <li class="nav-item"><a href="file-upload.html" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-upload-cloud"></i></span><span class="pcoded-mtext">File upload</span></a></li>
+        <li class="nav-item"><a href="image_crop.html" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-scissors"></i></span><span class="pcoded-mtext">Image cropper</span></a></li>
         <li class="nav-item pcoded-menu-caption">
           <label>Other</label>
         </li>
         <li class="nav-item pcoded-hasmenu">
-          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-menu"></i></span><span class="pcoded-mtext">Menu levels</span></a>
+          <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-menu"></i></span><span
+              class="pcoded-mtext">Menu levels</span></a>
           <ul class="pcoded-submenu">
             <li><a href="#!">Menu Level 2.1</a></li>
             <li class="pcoded-hasmenu">
@@ -379,11 +431,13 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item disabled"><a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Disabled menu</span></a></li>
-        <li class="nav-item"><a href="sample-page.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li> --}}
+        <li class="nav-item disabled"><a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-power"></i></span><span class="pcoded-mtext">Disabled menu</span></a></li>
+        <li class="nav-item"><a href="sample-page.html" class="nav-link "><span class="pcoded-micon"><i
+                class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li> --}}
 
       </ul>
-      
+
       {{-- <div class="card text-center">
         <div class="card-block">
           <button type="button" class="btn-close" data-dismiss="alert" aria-hidden="true"></button>
@@ -393,12 +447,12 @@
           <a href="#!" target="_blank" class="btn btn-primary btn-sm text-white m-0">Support</a>
         </div>
       </div> --}}
-      
+
     </div>
   </div>
 </nav>
 <!-- [ navigation menu ] end -->
-  
+
 {{-- <script>
   $(document).ready(function(){
   $("#consultantAllId").click(function(){
@@ -412,39 +466,39 @@
 
 
 {{-- <div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0">
-    <div class="sidebar">
-        <div class="list-group">
-            <h3>Categories</h3>
-            <p></p>
-            @foreach (App\Models\Category::orderBy('name', 'asc')->where('parent_id', NULL)->get() as $parent)
-            <a href="#main-{{ $parent->id }}" class="list-group-item list-group-item-action" data-toggle="collapse">
-                <img src="{!! asset('images/categories/'.$parent->image) !!}" width="50">
-                {{ $parent->name }}
-            </a>
-            <div class="collapse
+  <div class="sidebar">
+    <div class="list-group">
+      <h3>Categories</h3>
+      <p></p>
+      @foreach (App\Models\Category::orderBy('name', 'asc')->where('parent_id', NULL)->get() as $parent)
+      <a href="#main-{{ $parent->id }}" class="list-group-item list-group-item-action" data-toggle="collapse">
+        <img src="{!! asset('images/categories/'.$parent->image) !!}" width="50">
+        {{ $parent->name }}
+      </a>
+      <div class="collapse
                 @if (Route::is('categories.show'))
                 @if (App\Models\Category::ParentOrNotCategory($parent->id, $category->id))
                     show
                 @endif
                 @endif
             " id="main-{{ $parent->id }}">
-                <div class="child-rows">
-                @foreach (App\Models\Category::orderBy('name', 'asc')->where('parent_id', $parent->id)->get() as $child)
-                    <a href="{!! route('categories.show', $child->id) !!}" class="list-group-item list-group-item-action
+        <div class="child-rows">
+          @foreach (App\Models\Category::orderBy('name', 'asc')->where('parent_id', $parent->id)->get() as $child)
+          <a href="{!! route('categories.show', $child->id) !!}" class="list-group-item list-group-item-action
                     @if (Route::is('categories.show'))
                         @if ($child->id == $category->id)
                         active
                         @endif
                     @endif
                     ">
-                    - {{ $child->name }}
-                    </a>
-                @endforeach
-                </div>
-
-
-            </div>
-            @endforeach
+            - {{ $child->name }}
+          </a>
+          @endforeach
         </div>
+
+
+      </div>
+      @endforeach
     </div>
+  </div>
 </div> --}}

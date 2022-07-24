@@ -472,16 +472,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
-                                            <td>test</td>
+                                        {{-- <tr>--}}
+                                            {{-- <td>test</td>--}}
+                                            {{-- <td>test</td>--}}
+                                            {{-- <td>test</td>--}}
+                                            {{-- <td>test</td>--}}
+                                            {{-- <td>test</td>--}}
+                                            {{-- <td>test</td>--}}
                                             {{-- <td>test</td> --}}
-                                        </tr>
-
+                                            {{-- </tr>--}}
                                     </tbody>
 
                                 </table>
@@ -801,7 +800,9 @@
 		})
 		.done(function( response ) {
             // $('#exampleModalCenter').modal('toggle');
+            console.log(response)
             const result = JSON.parse(response)
+            console.log('-----test--------');
 			console.log(result);
             $('#cpu_use_percentage').html(result.cpu_use_percentage + " %");
             $('#hdd_total').html(result.hdd_total);

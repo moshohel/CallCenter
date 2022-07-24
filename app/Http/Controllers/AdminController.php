@@ -109,10 +109,12 @@ class AdminController extends Controller
         $upTimeArr = explode(' ', trim($upTime));
         $stat['up_time'] = $upTimeArr[2];
         $stat['cpu_use_percentage'] = $cpuUses;
-        // print_r($upTime);
-        // echo "<br>";
-        // print_r('Server Up time : ' . $upTimeArr[2] . ' ' . $upTimeArr[3]);
-        //    dd($upTime);
+        //        print_r($upTimeArr);
+        //        echo "<br>";
+        //        print_r($stat['up_time']);
+        //        echo "<br>";
+        //        print_r('Server Up time : ' . $upTimeArr[2] . ' ' . $upTimeArr[3]);
+        //        dd($upTime);
         //memory stat
         $stat['mem_percent'] = round(shell_exec("free | grep Mem | awk '{print $3/$2 * 100.0}'"), 2);
         $mem_result = shell_exec("cat /proc/meminfo | grep MemTotal");
@@ -133,8 +135,8 @@ class AdminController extends Controller
         header('Content-type: application/json');
         //output data by json
         echo
-        "{  \"up_time\": " . $stat['up_time'] . ",
-            \"cpu_use_percentage\": " . $stat['cpu_use_percentage'] . ",
+        "{  \"up_time\":  \"$stat[up_time]\"
+            ,\"cpu_use_percentage\": " . $stat['cpu_use_percentage'] . ",
             \"mem_percent\": " . $stat['mem_percent'] . ", \"mem_total\":" . $stat['mem_total'] . ", \"mem_used\":" . $stat['mem_used'] . ", \"mem_free\":" . $stat['mem_free'] . //mem stats
             ", \"hdd_free\":" . $stat['hdd_free'] . ", \"hdd_total\":" . $stat['hdd_total'] . ", \"hdd_used\":" . $stat['hdd_used'] . ", \"hdd_percent\":" . $stat['hdd_percent'] . //hdd stats
 

@@ -15,9 +15,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 Route::get('/dashboard', function () {
@@ -32,12 +32,20 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/callReport', [AdminController::class, 'callReport'])->name('report.call');
     Route::get('/apiCallReport', [AdminController::class, 'apiCallReport']);
 
-
-
     Route::get('/systemInfo', [AdminController::class, 'systemInfo']);
     Route::post('/apiLiveDashboard', [AdminController::class, 'apiLiveDashboard'])->name('apiLiveDashboard');
     Route::post('/apiLive', [AdminController::class, 'apiLive'])->name('apiLive');
 });
+
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/', 'App\Http\Controllers\UserController@index')->name('users');
+    Route::get('/create', 'App\Http\Controllers\UserController@create')->name('user.create');
+    Route::get('/edit/{id}', 'App\Http\Controllers\UserController@edit')->name('user.edit');
+    Route::post('/create', 'App\Http\Controllers\UserController@store')->name('user.store');
+    Route::post('/edit/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
+    Route::get('/delete/{id}', 'App\Http\Controllers\UserController@delete')->name('user.delete');
+});
+
 
 Route::get('/index', function () {
     return view('pages.index');
