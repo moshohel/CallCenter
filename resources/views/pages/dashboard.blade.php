@@ -14,496 +14,485 @@
 
 @section('content')
 
-<!-- [ Main Content ] start -->
-<div class="pcoded-main-container">
-    <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
-        <div class="page-header">
-            <div class="page-block">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="page-header-title">
-                            <a href="{{ route('dashboard') }}">
-                                <h5 class="m-b-10">Dashboard</h5>
-                            </a>
-                        </div>
-
-                    </div>
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <a href="{{ route('dashboard') }}">
+                        <h5 class="m-b-10">Dashboard</h5>
+                    </a>
                 </div>
+
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
-        <!-- [ Main Content ] start -->
-        <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <h2 id="total_calls">0</h2>
-                                        <h6 class="text-muted m-b-0">Total</h6>
-                                    </div>
-                                    <div class="col-4 text-end">
-                                        {{-- <i class="feather icon-file-text f-28"></i> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-c-green">
-                                <div class="row align-items-center">
-                                    <div class="col-9">
-                                        <p class="text-white m-b-0">Call</p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <i class="feather icon-trending-up text-white f-16"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <h2 id="total_inbound_calls">0</h2>
-                                        <h6 class="text-muted m-b-0">Total Inbound</h6>
-                                    </div>
-                                    <div class="col-4 text-end">
-                                        {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-c-blue">
-                                <div class="row align-items-center">
-                                    <div class="col-9">
-                                        <p class="text-white m-b-0">Call</p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <i class="feather icon-trending-down text-white f-16"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-                <!-- page statustic card start -->
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <h2 id="total_outbound_calls">0</h2>
-                                        <h6 class="text-muted m-b-0">Tatal Outbound</h6>
-                                    </div>
-                                    <div class="col-4 text-end">
-                                        {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-secondary">
-                                <div class="row align-items-center">
-                                    <div class="col-9">
-                                        <p class="text-white m-b-0">Call</p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <i class="feather icon-trending-up text-white f-16"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <h2 id="total_failed_calls">0</h2>
-                                        <h6 class="text-muted m-b-0">Total Failed</h6>
-                                    </div>
-                                    <div class="col-4 text-end">
-                                        {{-- <i class="feather icon-calendar f-28"></i> --}}
-                                        {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-danger">
-                                <div class="row align-items-center">
-                                    <div class="col-9">
-                                        <p class="text-white m-b-0">Call</p>
-                                    </div>
-                                    <div class="col-3 text-end">
-                                        <i class="feather icon-trending-down text-white f-16"></i>
-                                        {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- page statustic card end -->
-            </div>
-
-
-            <!-- Charts start -->
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="card">
-                        {{-- <div class="card-body" style="height: 400px;">
-                            <canvas id="inboundChart"></canvas>
-                        </div> --}}
-                        <div class="card-body">
-                            <div class="chartjs-size-monitor"
-                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                <div class="chartjs-size-monitor-expand"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                                </div>
-                                <div class="chartjs-size-monitor-shrink"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                                </div>
-                            </div>
-                            <canvas id="inboundChart" style="display: block; height: 340px; width: 494px;"
-                                class="chartjs-render-monitor"></canvas>
-                        </div>
-                        <div class="card-body">
-                            <div class="text-center">
-                                {{-- <img src="assets/images/pages/festival.svg" alt="image"
-                                    class="img-fluid wid-100 mb-2"> --}}
-                                <h5>Total Inbound Call Status <br><span class="badge badge-danger">Festival</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6 col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="chartjs-size-monitor"
-                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                <div class="chartjs-size-monitor-expand"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                                </div>
-                                <div class="chartjs-size-monitor-shrink"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                                </div>
-                            </div>
-                            <canvas id="outboundChart" style="display: block; height: 340px; width: 494px;"
-                                class="chartjs-render-monitor"></canvas>
-                        </div>
-                        <div class="card-body">
-                            <div class="text-center">
-
-                                <h5>Total Outbound Call Status<br><span class="badge badge-danger">Festival</span></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- <div class="col-lg-6 col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="chartjs-size-monitor"
-                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                <div class="chartjs-size-monitor-expand"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                                </div>
-                                <div class="chartjs-size-monitor-shrink"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                                </div>
-                            </div>
-                            <canvas id="outboundChart_test" style="display: block; height: 340px; width: 494px;"
-                                class="chartjs-render-monitor"></canvas>
-                        </div>
-                        <div class="card-body">
-                            <div class="text-center">
-
-                                <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Bar chart horizontal</h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="bar-chart-3"></div>
-                        </div>
-                    </div>
-                </div> --}}
-
-            </div>
-
-            {{-- <div class="row">
-
-                <div class="col-xl-6 col-md-12">
-                    <div class="card card-no-hover m-b-30">
-                        <div class="card-header">
-                            <div class="card-title">Campaign Stats</div>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart">
-                                <div id="apexchart-006" class="chart-canvas"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-6 col-md-12">
-                    <div class="card card-no-hover m-b-30">
-                        <div class="card-header">
-                            <div class="card-title">Call Stats</div>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart">
-                                <div id="call_stats" class="chart-canvas"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div> --}}
-
-            {{-- <div class="row">
-                <div class="col-xl-6 col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Bar [ Horizontal ] Chart</h5>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="deviceChart2" style="width: 100%; height: 300px"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                    <div class="card card-default" id="activity-user">
-                        <div class="card-header justify-content-center">
-                            <h2>Demographic – Age Group</h2>
-                        </div>
-                        <div class="card-body">
-                            <div class="chartjs-size-monitor"
-                                style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                                <div class="chartjs-size-monitor-expand"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                                </div>
-                                <div class="chartjs-size-monitor-shrink"
-                                    style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                                </div>
-                            </div>
-                            <canvas id="currentUser" width="988" height="680"
-                                style="display: block; height: 340px; width: 494px;"
-                                class="chartjs-render-monitor"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            <!--End Charts start -->
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card card-no-hover m-b-30">
-                        <div class="card-header">
-                            {{-- <div class="card-title">System Informations</div> --}}
-                            <h5>System Informations</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="avg-call-box row">
-                                <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            {{-- <i class="fas fa-plus"></i> --}}
-                                        </div>
-                                        <div class="call_text">
-                                            <h6 class="text-primary"><span id="up_time"> days</span> </h6>
-                                            <h5>Up Time</h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            {{-- <i class="icon icon-earth"></i> --}}
-                                            {{-- <i class="fas fa-globe"></i> --}}
-                                        </div>
-                                        <div class="call_text">
-                                            <h6 class="text-danger">CPU Used : <span id="cpu_use_percentage"></span>
-                                            </h6>
-                                            <h5>CPU Status</h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            {{-- <i class="fas fa-phone"></i> --}}
-                                        </div>
-                                        <div class="call_text">
-                                            <h6 class="text-info">Total RAM : <span id="mem_total"></span></h6>
-                                            <h6 class="text-primary">Used RAM : <span id="mem_used"></span></h6>
-                                            <h6 class="text-success">Free RAM : <span id="mem_free"></span></h6>
-                                            <h5>Memory or RAM Status</h5>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            {{-- <i class="fas fa-hourglass-half"></i> --}}
-                                        </div>
-                                        <div class="call_text">
-                                            <h6 class="text-info">Total HDD : <span id="hdd_total"></span></h6>
-                                            <h6 class="text-primary">Used HDD : <span id="hdd_used"></span></h6>
-                                            <h6 class="text-success">Free HDD : <span id="hdd_free"></span></h6>
-                                            <h5>HDD Status</h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6  d-flex">
-                    <div class="card card-no-hover m-b-30">
-                        <div class="card-header">
-                            {{-- <div class="card-title">Call Stats</div> --}}
-                            <h5>Call Status</h5>
-                        </div>
-                        <div class="card-body">
-                            <ul class="avg-call-box row">
-                                <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            {{-- <i class="fas fa-plus"></i> --}}
-                                        </div>
-                                        <div class="call_text">
-                                            <h4 class="text-primary" id="avg_incoming_call">00:00:00</h4>
-                                            <h5>Avg Incoming Call Duration</h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            {{-- <i class="icon icon-earth"></i> --}}
-                                            {{-- <i class="fas fa-globe"></i> --}}
-                                        </div>
-                                        <div class="call_text">
-                                            <h4 class="text-danger" id="avg_queue_time">00:00:00</h4>
-                                            <h5>Avg Queue Time</h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            {{-- <i class="fas fa-phone"></i> --}}
-                                        </div>
-                                        <div class="call_text">
-                                            <h4 class="text-info" id="avg_outgoing_call">00:00:00</h4>
-                                            <h5>Avg Outgoing Call Duration</h5>
-                                        </div>
-                                    </div>
-                                </li>
-                                {{-- <li class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="call-box">
-                                        <div class="call-icon">
-                                            <i class="fas fa-hourglass-half"></i>
-                                        </div>
-                                        <div class="call_text">
-                                            <h4 class="text-success">12:01:04</h4>
-                                            <h5>Avg Time Duration per Agent</h5>
-                                        </div>
-                                    </div>
-                                </li> --}}
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-            <div class="row">
-                <!-- Agent Summery table data-basic-custom start -->
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Agent Summary</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="dt-responsive table-responsive">
-                                <table id="agent_summary_table" class="table table-striped table-bordered nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>Agent Name</th>
-                                            <th>Login Time</th>
-                                            <th>Last LogOut</th>
-                                            <th>Working Hours</th>
-                                            <th>Incoming Calls</th>
-                                            <th>Outgoing Calls</th>
-                                            {{-- <th>Pause Time</th> --}}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {{-- <tr>--}}
-                                            {{-- <td>test</td>--}}
-                                            {{-- <td>test</td>--}}
-                                            {{-- <td>test</td>--}}
-                                            {{-- <td>test</td>--}}
-                                            {{-- <td>test</td>--}}
-                                            {{-- <td>test</td>--}}
-                                            {{-- <td>test</td> --}}
-                                            {{-- </tr>--}}
-                                    </tbody>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Agent Summery table end -->
-            </div>
-
-        </div>
-        <!-- [ Main Content ] end -->
     </div>
 </div>
-<!-- Button trigger modal -->
+<!-- [ breadcrumb ] end -->
 
+<div class="row">
+    <div class="col-lg-6 col-md-12">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 id="total_calls">0</h2>
+                                <h6 class="text-muted m-b-0">Total</h6>
+                            </div>
+                            <div class="col-4 text-end">
+                                {{-- <i class="feather icon-file-text f-28"></i> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-c-green">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">Call</p>
+                            </div>
+                            <div class="col-3 text-end">
+                                <i class="feather icon-trending-up text-white f-16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 id="total_inbound_calls">0</h2>
+                                <h6 class="text-muted m-b-0">Total Inbound</h6>
+                            </div>
+                            <div class="col-4 text-end">
+                                {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-c-blue">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">Call</p>
+                            </div>
+                            <div class="col-3 text-end">
+                                <i class="feather icon-trending-down text-white f-16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <!-- page statustic card start -->
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 id="total_outbound_calls">0</h2>
+                                <h6 class="text-muted m-b-0">Tatal Outbound</h6>
+                            </div>
+                            <div class="col-4 text-end">
+                                {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-secondary">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">Call</p>
+                            </div>
+                            <div class="col-3 text-end">
+                                <i class="feather icon-trending-up text-white f-16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h2 id="total_failed_calls">0</h2>
+                                <h6 class="text-muted m-b-0">Total Failed</h6>
+                            </div>
+                            <div class="col-4 text-end">
+                                {{-- <i class="feather icon-calendar f-28"></i> --}}
+                                {{-- <i class="feather icon-thumbs-down f-28"></i> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-danger">
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <p class="text-white m-b-0">Call</p>
+                            </div>
+                            <div class="col-3 text-end">
+                                <i class="feather icon-trending-down text-white f-16"></i>
+                                {{-- <i class="feather icon-bar-chart-2 f-28"></i> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- page statustic card end -->
+    </div>
+
+    <!-- Charts start -->
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                {{-- <div class="card-body" style="height: 400px;">
+                    <canvas id="inboundChart"></canvas>
+                </div> --}}
+                <div class="card-body">
+                    <div class="chartjs-size-monitor"
+                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas id="inboundChart" style="display: block; height: 340px; width: 494px;"
+                        class="chartjs-render-monitor"></canvas>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        {{-- <img src="assets/images/pages/festival.svg" alt="image" class="img-fluid wid-100 mb-2">
+                        --}}
+                        <h5>Total Inbound Call Status <br><span class="badge badge-danger">Festival</span></h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chartjs-size-monitor"
+                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas id="outboundChart" style="display: block; height: 340px; width: 494px;"
+                        class="chartjs-render-monitor"></canvas>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+
+                        <h5>Total Outbound Call Status<br><span class="badge badge-danger">Festival</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chartjs-size-monitor"
+                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas id="outboundChart_test" style="display: block; height: 340px; width: 494px;"
+                        class="chartjs-render-monitor"></canvas>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+
+                        <h5>Out Inbound <br><span class="badge badge-danger">Festival</span></h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Bar chart horizontal</h5>
+                </div>
+                <div class="card-body">
+                    <div id="bar-chart-3"></div>
+                </div>
+            </div>
+        </div> --}}
+
+    </div>
+
+    {{-- <div class="row">
+
+        <div class="col-xl-6 col-md-12">
+            <div class="card card-no-hover m-b-30">
+                <div class="card-header">
+                    <div class="card-title">Campaign Stats</div>
+                </div>
+                <div class="card-body">
+                    <div class="chart">
+                        <div id="apexchart-006" class="chart-canvas"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-md-12">
+            <div class="card card-no-hover m-b-30">
+                <div class="card-header">
+                    <div class="card-title">Call Stats</div>
+                </div>
+                <div class="card-body">
+                    <div class="chart">
+                        <div id="call_stats" class="chart-canvas"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div> --}}
+
+    {{-- <div class="row">
+        <div class="col-xl-6 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Bar [ Horizontal ] Chart</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="deviceChart2" style="width: 100%; height: 300px"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="card card-default" id="activity-user">
+                <div class="card-header justify-content-center">
+                    <h2>Demographic – Age Group</h2>
+                </div>
+                <div class="card-body">
+                    <div class="chartjs-size-monitor"
+                        style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink"
+                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                        </div>
+                    </div>
+                    <canvas id="currentUser" width="988" height="680"
+                        style="display: block; height: 340px; width: 494px;" class="chartjs-render-monitor"></canvas>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <!--End Charts start -->
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card card-no-hover m-b-30">
+                <div class="card-header">
+                    {{-- <div class="card-title">System Informations</div> --}}
+                    <h5>System Informations</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="avg-call-box row">
+                        <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    {{-- <i class="fas fa-plus"></i> --}}
+                                </div>
+                                <div class="call_text">
+                                    <h6 class="text-primary"><span id="up_time"> days</span> </h6>
+                                    <h5>Up Time</h5>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    {{-- <i class="icon icon-earth"></i> --}}
+                                    {{-- <i class="fas fa-globe"></i> --}}
+                                </div>
+                                <div class="call_text">
+                                    <h6 class="text-danger">CPU Used : <span id="cpu_use_percentage"></span>
+                                    </h6>
+                                    <h5>CPU Status</h5>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    {{-- <i class="fas fa-phone"></i> --}}
+                                </div>
+                                <div class="call_text">
+                                    <h6 class="text-info">Total RAM : <span id="mem_total"></span></h6>
+                                    <h6 class="text-primary">Used RAM : <span id="mem_used"></span></h6>
+                                    <h6 class="text-success">Free RAM : <span id="mem_free"></span></h6>
+                                    <h5>Memory or RAM Status</h5>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    {{-- <i class="fas fa-hourglass-half"></i> --}}
+                                </div>
+                                <div class="call_text">
+                                    <h6 class="text-info">Total HDD : <span id="hdd_total"></span></h6>
+                                    <h6 class="text-primary">Used HDD : <span id="hdd_used"></span></h6>
+                                    <h6 class="text-success">Free HDD : <span id="hdd_free"></span></h6>
+                                    <h5>HDD Status</h5>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6  d-flex">
+            <div class="card card-no-hover m-b-30">
+                <div class="card-header">
+                    {{-- <div class="card-title">Call Stats</div> --}}
+                    <h5>Call Status</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="avg-call-box row">
+                        <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    {{-- <i class="fas fa-plus"></i> --}}
+                                </div>
+                                <div class="call_text">
+                                    <h4 class="text-primary" id="avg_incoming_call">00:00:00</h4>
+                                    <h5>Avg Incoming Call Duration</h5>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    {{-- <i class="icon icon-earth"></i> --}}
+                                    {{-- <i class="fas fa-globe"></i> --}}
+                                </div>
+                                <div class="call_text">
+                                    <h4 class="text-danger" id="avg_queue_time">00:00:00</h4>
+                                    <h5>Avg Queue Time</h5>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    {{-- <i class="fas fa-phone"></i> --}}
+                                </div>
+                                <div class="call_text">
+                                    <h4 class="text-info" id="avg_outgoing_call">00:00:00</h4>
+                                    <h5>Avg Outgoing Call Duration</h5>
+                                </div>
+                            </div>
+                        </li>
+                        {{-- <li class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="call-box">
+                                <div class="call-icon">
+                                    <i class="fas fa-hourglass-half"></i>
+                                </div>
+                                <div class="call_text">
+                                    <h4 class="text-success">12:01:04</h4>
+                                    <h5>Avg Time Duration per Agent</h5>
+                                </div>
+                            </div>
+                        </li> --}}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="row">
+        <!-- Agent Summery table data-basic-custom start -->
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Agent Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div class="dt-responsive table-responsive">
+                        <table id="agent_summary_table" class="table table-striped table-bordered nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Agent Name</th>
+                                    <th>Login Time</th>
+                                    <th>Last LogOut</th>
+                                    <th>Working Hours</th>
+                                    <th>Incoming Calls</th>
+                                    <th>Outgoing Calls</th>
+                                    {{-- <th>Pause Time</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- <tr>--}}
+                                    {{-- <td>test</td>--}}
+                                    {{-- <td>test</td>--}}
+                                    {{-- <td>test</td>--}}
+                                    {{-- <td>test</td>--}}
+                                    {{-- <td>test</td>--}}
+                                    {{-- <td>test</td>--}}
+                                    {{-- <td>test</td> --}}
+                                    {{-- </tr>--}}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Agent Summery table end -->
+    </div>
+
+</div>
+
+<!-- Button trigger modal -->
 
 @endsection
 
-
 @section('scripts')
-
-
 
 <!-- chartjs js -->
 {{-- <script src={{asset("assets/js/plugins/Chart.min.js")}}></script> --}}

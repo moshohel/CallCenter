@@ -5,85 +5,81 @@
 @endpush
 
 @section('content')
-<div class="pcoded-main-container">
-    <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
-        <div class="page-header">
-            <div class="page-block">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="page-header-title">
-                            <a href="{{ route('report.call') }}">
-                                <h5 class="m-b-10">Call Report</h5>
-                            </a>
-                        </div>
 
-                    </div>
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <a href="{{ route('report.call') }}">
+                        <h5 class="m-b-10">Call Report</h5>
+                    </a>
                 </div>
+
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
-        <div class="row">
-            <!-- Agent Summery table data-basic-custom start -->
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Call Report</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="dt-responsive table-responsive">
-                            <table id="call_report_table" class="table table-striped table-bordered nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Call Date</th>
-                                        <th>Call Type</th>
-                                        <th>Customer Number</th>
-                                        <th>DID</th>
-                                        <th>Call Status</th>
-                                        <th>Campaign</th>
-                                        <th>Ingroup</th>
-                                        <th>Agent Name</th>
-                                        <th>Agent Extension</th>
-                                        <th>Queue Sec</th>
-                                        <th>Talk Sec</th>
-                                        <th>Dead Sec</th>
-                                        <th>Disposition Sec</th>
-                                        <th>Hangup Side</th>
-                                        <th>Record</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{-- <tr>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                    </tr> --}}
-
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Agent Summery table end -->
-        </div>
-
-
     </div>
 </div>
+<!-- [ breadcrumb ] end -->
+<div class="row">
+    <!-- Agent Summery table data-basic-custom start -->
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Call Report</h5>
+            </div>
+            <div class="card-body">
+                <div class="dt-responsive table-responsive">
+                    <table id="call_report_table" class="table table-striped table-bordered nowrap">
+                        <thead>
+                            <tr>
+                                <th>Call Date</th>
+                                <th>Call Type</th>
+                                <th>Customer Number</th>
+                                <th>DID</th>
+                                <th>Call Status</th>
+                                <th>Campaign</th>
+                                <th>Ingroup</th>
+                                <th>Agent Name</th>
+                                <th>Agent Extension</th>
+                                <th>Queue Sec</th>
+                                <th>Talk Sec</th>
+                                <th>Dead Sec</th>
+                                <th>Disposition Sec</th>
+                                <th>Hangup Side</th>
+                                <th>Record</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{-- <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                            </tr> --}}
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Agent Summery table end -->
+</div>
+
 @endsection
 
 

@@ -67,7 +67,7 @@ class UserController extends Controller
         $user->save();
         session()->flash('success', 'New User has added successfully !!');
 
-        return  redirect('/');
+        return  redirect('/user');
     }
 
     /**
@@ -108,9 +108,9 @@ class UserController extends Controller
         $data = $request->only($user->getFillable());
         $user->fill($data);
         $user->save();
-
+        session()->flash('success', 'User credentials changed successfully !!');
         // redirect('/edit/{{$id}}');
-        return redirect()->to('edit/' . $id);
+        return redirect()->to('user/edit/' . $id);
     }
 
     /**

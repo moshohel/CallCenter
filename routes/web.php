@@ -42,6 +42,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/create', 'App\Http\Controllers\UserController@create')->name('user.create');
     Route::get('/edit/{id}', 'App\Http\Controllers\UserController@edit')->name('user.edit');
     Route::post('/create', 'App\Http\Controllers\UserController@store')->name('user.store');
+    // Route::post('/create', function () {
+    //     echo '-----sduhfisfdsfh----';
+    // })->name('user.store');
     Route::post('/edit/{id}', 'App\Http\Controllers\UserController@update')->name('user.update');
     Route::get('/delete/{id}', 'App\Http\Controllers\UserController@delete')->name('user.delete');
 });
