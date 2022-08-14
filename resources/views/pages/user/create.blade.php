@@ -80,7 +80,7 @@
                                     {{-- <option disabled="" value>User group</option> --}}
                                     <optgroup label="User group">
                                         <option value="3">Admin</option>
-                                        <option value="2">Super user</option>
+                                        <option value="2">Supervisor</option>
                                         <option value="1">Agent</option>
                                     </optgroup>
                                 </select>
@@ -90,13 +90,13 @@
                             <div class="form-group">
                                 <label class="form-label">Active Status</label>
                                 <select class="form-control" name="is_active">
-                                    <option value>is_active</option>
+                                    <option value>Status</option>
                                     <option value="y">YES</option>
                                     <option value="n">NO</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">created_by</label>
                                 <input type="number" class="form-control" name="created_by" placeholder="created_by">
@@ -108,8 +108,8 @@
                                 <input type="datetime-local" class="form-control" name="created_date"
                                     placeholder="created_date">
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        </div> --}}
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">modified_by</label>
                                 <input type="number" class="form-control" name="modified_by" placeholder="modified_by">
@@ -121,8 +121,8 @@
                                 <input type="datetime-local" class="form-control" name="modified_date"
                                     placeholder="modified_date">
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        </div> --}}
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">is_logged_in</label>
                                 <select class="form-control" name="is_logged_in">
@@ -131,12 +131,12 @@
                                     <option value="n">NO</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        </div> --}}
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">status</label>
                                 <select class="form-control" name="status">
-                                    {{-- <option value>status</option> --}}
+                                    <option value disabled>status</option>
                                     <option value="paused">paused</option>
                                     <option value="active">active</option>
                                     <option value="being_connected">being_connected</option>
@@ -148,8 +148,8 @@
                                     <option value="logged_out">logged_out</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                        </div> --}}
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">channel</label>
                                 <input type="text" class="form-control" name="channel" placeholder="channel">
@@ -206,7 +206,7 @@
                                 <label class="form-label">session_id</label>
                                 <input type="text" class="form-control" name="session_id" placeholder="session_id">
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                     <button type="submit" class="btn  btn-primary">Submit</button>

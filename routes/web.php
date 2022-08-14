@@ -3,7 +3,8 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +16,12 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
+Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
@@ -108,3 +111,7 @@ Route::get('/info', function () {
 
         "}";
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

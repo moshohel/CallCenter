@@ -8,6 +8,9 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -62,9 +65,26 @@ class UserController extends Controller
         // dd($request);
         $user = new User();
         $data = $request->only($user->getFillable());
+        $data['password'] =  Hash::make($request->password);
+        $data['created_by'] = Auth::user()->id;
+
+
+
+        date_default_timezone_set('Asia/Dhaka');
+        $date = date('Y-m-d H:i:s');
+        $data['created_date'] = $date;
+
+        // $data['status'] = "logged_out";
+        print_r(Auth::user()->id);
+        echo '<br>';
+        // dd(Auth::user('id'));
+        // $data['created_date'] = Carbon::now()->toDateTimeString();
+        //        dd(Carbon::now()->toDateTimeString());
+        // $data['password'] =  sha1($request->password);
         $user->fill($data);
 
         $user->save();
+
         session()->flash('success', 'New User has added successfully !!');
 
         return  redirect('/user');
@@ -106,8 +126,45 @@ class UserController extends Controller
         // dd($request);
         $user = User::find($id);
         $data = $request->only($user->getFillable());
+        print_r($data['name'], '\n');
+        $name = $data['name'];
+        $rowPass = $data['password'];
+        if ($data['password'] != '') {
+            print($data['password']);
+            echo '</br>';
+            // $data['password'] =  Hash::make($request->password);
+            $options = [
+                'cost' => 10,
+            ];
+            $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT, $options);
+            print_r($data['password']);
+            echo '</br>';
+
+            // echo password_hash($data['password'], PASSWORD_BCRYPT, $options);
+        } else {
+            unset($data['password']);
+        }
         $user->fill($data);
         $user->save();
+
+        // $hash = row('SELECT PASSWORD FROM `user` WHERE name = 'user3');
+        $hash = DB::table('user')
+            ->select('password')
+            ->where('name', $data['name'])
+            ->get();
+        $pass = DB::select("SELECT password FROM user WHERE name = '$name' ");
+        // $pass = DB::select("SELECT password FROM user WHERE name = '$data['name']");
+        echo gettype($pass) . "<br>";
+
+        if (password_verify($rowPass, $pass[0]->password)) {
+
+            echo 'Password is valid!';
+        } else {
+            echo 'Invalid password.';
+        }
+
+        // dd($pass[0]->password);
+        // dd($data);
         session()->flash('success', 'User credentials changed successfully !!');
         // redirect('/edit/{{$id}}');
         return redirect()->to('user/edit/' . $id);

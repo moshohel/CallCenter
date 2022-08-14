@@ -15,9 +15,11 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        // username: admin
+        // password: admin
         DB::table('user')->insert([
             'name' => 'admin',
-            'password' => 'admin',
+            'password' => '$2y$10$TwgD7YBh/0/coMHtJfzG2eAS//MofeORgKo79jy6IXvst6DyR6qiK',
             'extension' => '100',
             'api_key' => 'api_key',
             'on_hook' => 'y',
