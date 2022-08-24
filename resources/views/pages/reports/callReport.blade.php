@@ -99,6 +99,16 @@
 })
 </script>
 
+<script>
+    $(document).ready(function () {
+    setTimeout(function () {
+        $('#call_summary').DataTable({
+      order: [[0, 'desc']],
+    })
+    }, 350)
+})
+</script>
+
 
 <script>
     // const total_calls = document.getElementById("total_calls");

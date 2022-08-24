@@ -1,4 +1,3 @@
-
 <!-- Required Js -->
 <!-- Apex Chart -->
 <script src={{asset("assets/js/plugins/apexcharts.min.js")}}></script>

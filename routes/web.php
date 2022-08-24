@@ -33,6 +33,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/live', [AdminController::class, 'live'])->name('live');
     Route::get('/callReport', [AdminController::class, 'callReport'])->name('report.call');
+    Route::get('/callSummary', [AdminController::class, 'callSummary'])->name('report.callSummary');
+    Route::post('/callSummary', [AdminController::class, 'callSummary'])->name('callSummary.search');
     Route::get('/apiCallReport', [AdminController::class, 'apiCallReport']);
 
     Route::get('/systemInfo', [AdminController::class, 'systemInfo']);

@@ -50,14 +50,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">api_key</label>
-                                <input type="text" class="form-control" name="api_key" placeholder="api_key">
+                                <input type="text" class="form-control" name="api_key" maxlength="10"
+                                    placeholder="api_key">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">On Hook</label>
                                 <select class="form-control" name="on_hook">
-                                    <option value>All on hook's</option>
+                                    <option value disabled>All on hook's</option>
                                     <optgroup label="On Hook Groups">
                                         <option value="y">YES</option>
                                         <option value="n">NO</option>
@@ -65,13 +66,13 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">conf_room</label>
                                 <input type="number" class="form-control" name="conf_room"
                                     placeholder="Phone: (+088) 999-9999">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-6">
                             <div class="form-group">

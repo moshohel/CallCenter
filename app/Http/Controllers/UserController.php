@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use phpDocumentor\Reflection\Types\Null_;
 
 class UserController extends Controller
 {
@@ -66,7 +67,12 @@ class UserController extends Controller
         $user = new User();
         $data = $request->only($user->getFillable());
         $data['password'] =  Hash::make($request->password);
+        $data['conf_room'] = 0;
+        // $data['created_by'] = 1;
         $data['created_by'] = Auth::user()->id;
+        // if (is_null($data['created_by'])) {
+        //     $data['created_by'] = 1;
+        // }
 
 
 
@@ -75,8 +81,8 @@ class UserController extends Controller
         $data['created_date'] = $date;
 
         // $data['status'] = "logged_out";
-        print_r(Auth::user()->id);
-        echo '<br>';
+        //        print_r(Auth::user()->id);
+        //        echo '<br>';
         // dd(Auth::user('id'));
         // $data['created_date'] = Carbon::now()->toDateTimeString();
         //        dd(Carbon::now()->toDateTimeString());

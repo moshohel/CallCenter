@@ -35,6 +35,7 @@
               class="pcoded-mtext">Reports</span></a>
           <ul class="pcoded-submenu">
             <li><a href="{{ route('report.call') }}">Call Report</a></li>
+            <li><a href="{{ route('report.callSummary') }}">Call Summary</a></li>
             {{-- <li><a href="dashboard-sale.html">Sales</a></li>
             <li><a href="dashboard-crm.html">CRM</a></li>
             <li><a href="dashboard-analytics.html">Analytics</a></li>
