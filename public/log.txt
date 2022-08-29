@@ -1,0 +1,14 @@
+select DATE_FORMAT(c.calldate, '%Y-%m-%d') as calldate,c.call_type, c.src, c.dst
+        ,c.hangup_handler_time
+        ,c.connected_at
+        ,c.call_status_before_hangup
+        ,c.incoming_queued_at
+        ,ifnull(a.talk_sec,0)as talk_sec
+        ,c.record
+        ,CASE
+            WHEN connected_at is null THEN 'unsuccess'
+            ELSE 'success'
+        END as connected_flag
+        from call_log c left join agent_log a on c.id=a.call_id 
+        where  1  and call_type ='in'  and DATE(created_at) >= '2022-08-02'  and DATE(created_at) <= '2022-08-15'  order by c.calldate asc
+John Smith

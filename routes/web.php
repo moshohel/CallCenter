@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Report\CallSummaryController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Facades\Auth;
@@ -33,14 +34,23 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/live', [AdminController::class, 'live'])->name('live');
     Route::get('/callReport', [AdminController::class, 'callReport'])->name('report.call');
-    Route::get('/callSummary', [AdminController::class, 'callSummary'])->name('report.callSummary');
-    Route::post('/callSummary', [AdminController::class, 'callSummary'])->name('callSummary.search');
+    // Route::get('/callSummary', [AdminController::class, 'callSummary'])->name('report.callSummary');
+    // Route::post('/callSummary', [AdminController::class, 'callSummary'])->name('callSummary.search');
     Route::get('/apiCallReport', [AdminController::class, 'apiCallReport']);
 
     Route::get('/systemInfo', [AdminController::class, 'systemInfo']);
     Route::post('/apiLiveDashboard', [AdminController::class, 'apiLiveDashboard'])->name('apiLiveDashboard');
     Route::post('/apiLive', [AdminController::class, 'apiLive'])->name('apiLive');
 });
+
+Route::group(['prefix' => 'report'], function () {
+
+    Route::get('/callSummary', 'App\Http\Controllers\Report\CallSummaryController@callSummary')->name('report.callSummary');
+    Route::post('/callSummary', [CallSummaryController::class, 'search'])->name('callSummary.search');
+});
+
+
+
 
 Route::group(['prefix' => 'user'], function () {
     Route::get('/', 'App\Http\Controllers\UserController@index')->name('users');

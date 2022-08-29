@@ -2,6 +2,7 @@
 
 @push('css')
 <link rel="stylesheet" href={{ asset("assets/css/plugins/dataTables.bootstrap4.min.css")}}>
+<link rel="stylesheet" href={{ asset("assets/css/plugins/bootstrap-stars.css")}}>
 @endpush
 
 @section('content')
@@ -29,28 +30,34 @@
         <div class="card">
             <div class="card-header">
                 <h5>Call Summary</h5>
-
-                {{-- Filter --}}
-                <form action="{{ route('callSummary.search') }}" method="post" enctype="multipart/form-data"
+                <div class="btn-group">
+                    <a id="print_excel" href="#" class="btn btn-sm btn-secondary" style="display: none">
+                        <i class="mdi mdi-content-save"></i> Download Excel</a>
+                    <a id="print_pdf" class="btn btn-sm btn-secondary">
+                        <i class="mdi mdi-printer" id="print_icon"></i> Download PDF</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('callSummary.search') }}" id="search" method="post" enctype="multipart/form-data"
                     id="search">
                     @csrf
-                    <div class="row card-body pt-0 pb-5 position-relative">
-                        {{-- <div class="form-group col-4">
-                            <label for="exampleFormControlInput2">Designation</label>
-                            <input type="text" name="designation" class="form-control" id="exampleFormControlInput2"
-                                placeholder="Designation">
+                    <div class="row">
+                        {{-- <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="floating-label" for="Text">Call Type</label>
+                                <input type="text" class="form-control" id="Text" placeholder="123">
+                            </div>
                         </div> --}}
-                        <div class="form-group col-3">
-                            <label for="exampleFormControlSelect3">Availed</label>
-                            <select name="availed" id="exampleFormControlSelect3" placeholder="availed">
-                                <option value="" disabled selected hidden>availed</option>
-                                <option value="YES">YES</option>
-                                <option value="NO">NO</option>
-
+                        <div class="form-group col-sm-4">
+                            <label class="form-label" for="exampleFormControlSelect1">Call Type</label>
+                            <select class="form-select" name="call_type" id="exampleFormControlSelect1">
+                                <option value="">select</option>
+                                <option value="in">Incoming</option>
+                                <option value="out">Outgoing</option>
                             </select>
                         </div>
 
-                        {{-- <div class="form-group col-3" id="from_date">
+                        <div class="form-group col-3" id="from_date">
                             <label for="exampleFormControlInput6">Start Date</label>
                             <input type="date" class="form-control" name="from_date" id="exampleFormControlInput6"
                                 placeholder="Chamber Time">
@@ -59,8 +66,7 @@
                             <label for="exampleFormControlInput5"> End Date</label>
                             <input type="date" class="form-control" name="to_date" id="exampleFormControlInput5"
                                 placeholder="Chamber Time">
-                        </div> --}}
-
+                        </div>
                         <div class="form-group col-3 m-4 pt-2">
                             <button type="submit" class="btn btn-info btn-default" id="search-btn">Search</button>
                         </div>
@@ -90,8 +96,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($outputs as $output)
-                            {{-- <p>This is user {{ $user->id }}</p> --}}
+                            {{-- @foreach ($outputs as $output)
+
                             <tr>
                                 <td>{{ $output['calldate'] }}</td>
                                 <td>{{ $output['total_in'] }}</td>
@@ -109,7 +115,7 @@
                                 <td>{{ $output['total_talk_out'] }}</td>
 
                             </tr>
-                            @endforeach
+                            @endforeach --}}
 
                         </tbody>
 
@@ -126,30 +132,71 @@
 
 @section('scripts')
 <script src={{asset("assets/js/plugins/jquery-ui.min.js")}}></script>
+<script src={{asset("assets/js/plugins/bootstrap.min.js")}}></script>
 <!-- datatable Js -->
 <script src={{ asset("assets/js/plugins/jquery.dataTables.min.js")}}></script>
 <script src={{ asset("assets/js/plugins/dataTables.bootstrap4.min.js")}}></script>
 
-<script>
-    $(document).ready(function () {
-    setTimeout(function () {
-        $('#call_report_table').DataTable({
-      order: [[0, 'desc']],
-    })
-    }, 350)
-})
-</script>
 
 <script>
     $(document).ready(function () {
     setTimeout(function () {
         $('#call_summary').DataTable({
       order: [[0, 'desc']],
+      "destroy": true,
     })
     }, 350)
 })
 </script>
 
+<script>
+    $( "#search" ).submit(function( e ) {
+        let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        e.preventDefault();
+        e.stopImmediatePropagation();
+		$("#result").show();
+    // alert($(this).attr('action'));
+		$.ajax({
+            data: $(this).serialize(), // get the form data
+            type: $(this).attr('method'), // GET or POST
+            url: $(this).attr('action'), // the file to call
+            dataType : 'json',
+            })
+            .done(function( response ) {
+
+                $("#call_summary tbody tr").remove();
+				var output=response;
+				console.log(output);
+                // <td>" + output[i].pause_time + "</td>
+                let base = '172.16.252.7/metro_recording/';
+				for (i = 0; i < output.length; ++i) {
+                    
+					var markup = "<tr><td>"+output[i].calldate+"</td><td>" + output[i].total_in + 
+                        "</td><td>" + output[i].total_out  + "</td><td>" + output[i].success_in + 
+                            "</td><td>" + output[i].success_out + "</td><td>" + output[i].queue_drop + 
+                                "</td><td>"+output[i].ivr_drop+"</td><td>" + output[i].abandoned_in + 
+                                    "</td><td>" + output[i].avg_queue_time  + "</td><td>" + output[i].avg_talk_in + 
+                                        "</td><td>" + output[i].total_talk_in + "</td><td>" + output[i].unsuccessful_out + "</td><td>" 
+                                            + output[i].avg_talk_out + "</td><td>" + output[i].total_talk_out + "</td></tr>";
+					// console.log(markup);
+					//$("#team_stats > tbody").append(markup);
+					$('#call_summary > tbody:last-child').append(markup);
+				}
+
+                // var additional_query=response.additional_query;
+                // var download_pdf_url="BookingController/download_pdf?additional_query="+additional_query;
+                // console.log('----------------',response);
+                
+                // load_datatable(additional_query);
+                
+                // url = url.replace(':id', additional_query);
+                // document.getElementById("print_pdf").setAttribute("href",url);
+                // $('#print_pdf').append('<li><a href="'+url+'">' + **print** + ' </a></li>');
+            });
+        //alert('form submitted');
+        return false;
+    });
+</script>
 
 <script>
     // const total_calls = document.getElementById("total_calls");
