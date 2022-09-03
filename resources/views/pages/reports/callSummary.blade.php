@@ -38,8 +38,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('callSummary.search') }}" id="search" method="post" enctype="multipart/form-data"
-                    id="search">
+                <form action="{{route('export.CallSummary')}}" id="myForm" method="get" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         {{-- <div class="col-sm-4">
@@ -59,19 +58,32 @@
 
                         <div class="form-group col-3" id="from_date">
                             <label for="exampleFormControlInput6">Start Date</label>
-                            <input type="date" class="form-control" name="from_date" id="exampleFormControlInput6"
+                            <input type="date" class="form-control" name="from_date" id="from_date_value"
                                 placeholder="Chamber Time">
                         </div>
                         <div class="form-group col-3" id="to_date">
                             <label for="exampleFormControlInput5"> End Date</label>
-                            <input type="date" class="form-control" name="to_date" id="exampleFormControlInput5"
+                            <input type="date" class="form-control" name="to_date" id="to_date_value"
                                 placeholder="Chamber Time">
                         </div>
                         <div class="form-group col-3 m-4 pt-2">
                             <button type="submit" class="btn btn-info btn-default" id="search-btn">Search</button>
                         </div>
+
+                        <div class="form-group col-3 m-4 pt-2">
+                            <button type="submit" class="btn btn-info btn-default" value='Excel'
+                                formaction="{{route('export.CallSummary')}}" id="excel_id">Excel</button>
+                            {{-- <input type="submit" class="btn btn-success btn-sm" value="Excel"
+                                formaction="{{route('export.CallSummary')}}"> --}}
+                        </div>
                     </div>
                 </form>
+
+                {{-- <button type="submit" formaction=" {{ route('callSummary.search') }}" form="myForm">Search</button>
+                --}}
+                <button type="submit" formaction="{{route('export.CallSummary')}}" form="myForm">Excel</button>
+
+
             </div>
             <div class="card-body">
                 <div class="dt-responsive table-responsive">
@@ -147,10 +159,38 @@
     })
     }, 350)
 })
+
+function editButtonClick() {
+    alert($('form').attr('action'));
+   $('#search').action = "{{route('export.CallSummary')}}";
+   alert($('form').attr('action'));
+   $('form').submit();
+//if doesn't work
+//ajax.get()
+// .then((response)>{
+//     var a = new document.a;
+//     a.href = "data:" + response.data;
+//     a.download = "download";
+//     a.click();
+// })
+}
+
+// $("#excel_id").click(function(){
+//   alert($(this).attr('action'));
+//   $('#search').attr('action', "{{route('export.CallSummary')}}");
+//   alert($('form').attr('action'));
+// });
+
+// $('#excel-btn').click(function(){
+//     alert(('#search').attr('action'));
+//    $('#search').attr('action', "{{route('export.CallSummary')}}");
+//    alert(('#search').attr('action'));
+//     $('form').submit();
+// });
 </script>
 
 <script>
-    $( "#search" ).submit(function( e ) {
+    $( "#search-btn" ).click(function( e ) {
         let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -159,7 +199,7 @@
 		$.ajax({
             data: $(this).serialize(), // get the form data
             type: $(this).attr('method'), // GET or POST
-            url: $(this).attr('action'), // the file to call
+            url: "{{ route('callSummary.search') }}", // the file to call
             dataType : 'json',
             })
             .done(function( response ) {
@@ -189,13 +229,16 @@
                 
                 // load_datatable(additional_query);
                 
-                // url = url.replace(':id', additional_query);
-                // document.getElementById("print_pdf").setAttribute("href",url);
-                // $('#print_pdf').append('<li><a href="'+url+'">' + **print** + ' </a></li>');
+                
+                
             });
         //alert('form submitted');
         return false;
     });
+</script>
+
+<script>
+    var nameValue = document.getElementById("from_date").value;
 </script>
 
 <script>

@@ -6,14 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Exports\CallSummaryExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CallSummaryController extends Controller
 {
 
-    public function callSummary()
+    public function index()
     {
         return view('pages.reports.callSummary');
     }
+
+
 
     public function search(Request $request)
     {
@@ -177,73 +181,27 @@ class CallSummaryController extends Controller
         }
         // dd($outputs);
 
-        echo json_encode($outputs);
+        return json_encode($outputs);
     }
 
-    public function search1(Request $request)
+    public function exportExcel(Request $request)
     {
+        /* $requests = CallChecklistForShojon::dayType($range_type);
 
-        $availed = $request->availed;
-        $from_date = $request->from_date;
-        $to_date = $request->to_date;
+        $requests = $requests->get();
+        $filename = Carbon::now()->toDateString() . '-KprCallChecklistRecords';*/
 
-        $str = '';
-        if ($availed != '') {
-            $str .= " and availed ='$availed' ";
-        }
+        // $data = $this->setFilterParams($request);
 
-        if ($from_date != '') {
-            $str .= " and DATE(created_at) >= '$from_date' ";
-        }
-        if ($to_date != '') {
-            $str .= " and DATE(created_at) <= '$to_date' ";
-        }
-        // echo $str;
+        $filtered_data = $this->search($request);
+        $filtered_data = json_decode($filtered_data);
+        $filtered_data = collect($filtered_data);
+        // print_r(gettype($filtered_data));
+        // print_r($filtered_data);
+        // dd($filtered_data);
 
-        $json_data = array(
-            "additional_query" => $str,
-        );
-        echo json_encode($json_data);
-    }
+        return Excel::download(new CallSummaryExport($filtered_data), 'CallSummaryReport.xlsx');
 
-    public function paging(Request $request)
-    {
-        // DataTable sends this draw, search, start, length
-        $draw = $request->draw;
-        $search = $request->search;
-        $start = $request->start;
-        $length = $request->length;
-
-        // additional_query is the query string for filtering data 
-        // form submit calles search which genarate this Query String 
-        $additional_query = $request->additional_query;
-
-        $bookings = DB::select("SELECT * FROM bookings WHERE 1 $additional_query limit $start ,$length");
-        //$recordsTotal = booking::select('id')->get()->count();
-        $count_result = DB::select("SELECT count(*) as total FROM bookings WHERE 1 $additional_query ");
-        $recordsTotal = $count_result[0]->total;
-        $recordsFiltered = $recordsTotal; //by default its equal to total record when no search applied
-        // dd($count_result);
-        // print_r($count_result);
-
-        $output = array();
-        foreach ($bookings as $item) {
-            $id = $item->id;
-            $view_button = "<a href='booking/show/$id' class='badge badge-success'>View</a>";
-            $edit_button = "<a href='booking/edit/$id' class='badge bg-secondary'>Edit</a>";
-            $delete_button = "<a href='booking/delete/$id' class='badge badge-danger'>Delete</a>";
-            $output[] = array(
-                $item->name, $item->phone, $item->service_type, $item->service_title, $item->availed,
-                "$view_button&nbsp;&nbsp$edit_button&nbsp;&nbsp;"
-            );
-        }
-
-        $json_data = array(
-            "draw"            => $draw,
-            "recordsTotal"    => $recordsTotal,
-            "recordsFiltered" => $recordsFiltered,
-            "data"            => $output   // total data array
-        );
-        echo json_encode($json_data);
+        // return Excel::download(new CallSummaryExport($filtered_data), 'CallSummaryReport.xlsx');
     }
 }

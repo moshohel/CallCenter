@@ -45,8 +45,19 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'report'], function () {
 
-    Route::get('/callSummary', 'App\Http\Controllers\Report\CallSummaryController@callSummary')->name('report.callSummary');
-    Route::post('/callSummary', [CallSummaryController::class, 'search'])->name('callSummary.search');
+    // Route::get('/', function () {
+    //     return view('pages.reports.callSummary');
+    // })->name('report.callSummary');
+    Route::get('/', [CallSummaryController::class, 'index'])->name('report.callSummary');
+    // Route::get('/callSummary', 'App\Http\Controllers\Report\CallSummaryController@callSummary')->name('report.callSummary');
+    Route::get('/callSummary', [CallSummaryController::class, 'search'])->name('callSummary.search');
+
+    // Route::get('/export',  function () {
+    //     echo 'got it';
+    // })->name('export.CallSummary');
+    Route::get('/export', 'App\Http\Controllers\Report\CallSummaryController@exportExcel')->name('export.CallSummary');
+    Route::get('/importExportView', 'App\Http\Controllers\Report\CallSummaryController@importExportView');
+    // Route::post('/import', 'App\Http\Controllers\Report\CallSummaryController@import')->name('import');
 });
 
 
